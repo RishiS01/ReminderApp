@@ -1,0 +1,12 @@
+.google {
+    background-color: #dd4b39 !important;
+    color:white;
+}
+.facebook {
+    background-color: #006699 !important;
+}
+.login{
+	display: flex;
+	align-items: center;
+	height: 70vh;
+}

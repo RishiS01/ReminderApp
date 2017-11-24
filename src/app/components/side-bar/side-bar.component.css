@@ -1,0 +1,18 @@
+h4{
+	text-align: center;
+	color: red;
+}
+.title{
+	list-style: none;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+h3{
+	text-align: center;
+}
+.side{
+	/*background-color: #f1f1f1;
+	 position: absolute;
+    height: 100%;*/
+}

@@ -1,0 +1,101 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class=" col-xs-2 col-md-3  sidebar">
+			<small>
+				<a (click) = "openAddForm()"><span class="glyphicon glyphicon-plus add"></span></a>
+			</small>
+			<!-- <div class="del" >
+				<p >
+				<a class="glyphicon glyphicon-trash" *ngIf='showAddInput || getData' (click)="onRemoveNote(note,i)" ></a>
+			</p>
+			</div> -->
+			<div >
+				<div class="dropdown">
+					<span class="dropdown-toggle" type="button" data-toggle="dropdown">
+						Tags
+						<span class="caret"></span>
+					</span>
+					<ul class="dropdown-menu side">
+						<li>
+							<!-- <a href="" routerLink='/trash' class="glyphicon glyphicon-trash">Trash</a> -->
+							<span class="getNotes"><span type='button' routerLink='/trash' class ="trashRouter">Trash</span></span>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<span class="getNotes"><span (click)="getNotes()" >All Notes</span></span>
+						</li>
+						<li class="divider"></li>
+						<li *ngFor="let note of n ; let i of index"  class="title" (click)="getTagData(note)" >{{note.display}}
+							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right remove" (click)="onAddNoteToTrash(note)"></a></span>
+						</li>
+					</ul>
+					
+				</div>
+				<ul class="noteList">
+					<div *ngIf="!tag">
+
+						<li *ngFor = "let data of notesValue; let i of index"  class="preview">
+							<p  name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" id="noteData">
+								{{data.Note}}
+							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onRemoveNote(data,i)"></a></span>
+							<!-- <a class="glyphicon glyphicon-trash trash"  (click)="onRemoveNote(note,i)" ></a>	 -->
+							</p>
+							<li>{{note}}
+						</li>
+					</div>
+					<div *ngIf="tag">
+						<li *ngFor="let data of tagdata ; let i of index">
+							<p name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" >
+									{{data.Note}}
+							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onRemoveNote(data,i)"></a></span>
+							</p>
+							<li>{{note}}
+						</li>
+					</div>
+				</ul>
+			</div>
+		</div>
+	<!-- <div class="delete">
+			<a class="glyphicon glyphicon-trash" *ngIf='showAddInput'></a>
+		</div> -->
+		<div class="container-fluid ">
+			<div class=" col-md-9">
+			
+				<form #f='ngForm' (keyup)='saveNote(f)'  *ngIf='showAddInput || getData '>
+					<!-- <div class="del">
+						<a class="glyphicon glyphicon-trash" *ngIf='showAddInput || getData' (click)="onRemoveNote(note,i)"></a>
+					</div> -->
+					<div class="tag-input">
+						<tag-input *ngIf="!getData" name="title" [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='title'
+								(onRemove)="onItemRemoved($event)"
+								(onAdd)="onItemAdded($event)"
+								[editable]='true' (onTagEdited)="onTagEdited($event)">
+						</tag-input>
+						<tag-input *ngIf="getData" name="title" [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='noteValue.Title'
+								(onRemove)="onItemRemoved($event)"
+								(onAdd)="onItemAdded($event)"
+								[editable]='true' (onTagEdited)="onTagEdited($event)">{{noteValue.Title}}
+						</tag-input>
+					</div>
+					<div class="note" >
+
+						<textarea *ngIf="!getData" rows="100%" cols="100%" name="note" placeholder="note.." [(ngModel)]="note"></textarea >
+						<textarea *ngIf="getData" rows="100%" cols="100%" name="Note"  [(ngModel)]="noteValue.Note" >{{noteValue.Note}}</textarea>
+					</div>
+				</form>
+				<form  (keyup)='updateNote(noteValue)'  *ngIf='getData'>
+						<div class="tag-input">
+							<tag-input *ngIf="getData" name="title" [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='noteValue.Title'
+																(onRemove)="onItemRemoved($event)"
+																(onAdd)="onItemAdded($event)"
+																[editable]='true' (onTagEdited)="onTagEdited($event)">{{noteValue.Title}}
+							</tag-input>
+						</div>
+						<div class="note" >
+							<textarea *ngIf="getData" rows="100%" cols="100%" name="Note"  [(ngModel)]="noteValue.Note" >{{noteValue.Note}}</textarea>
+						</div>
+					</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div>
+	<nav class="navbar navbar-default ">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav pull-right">
+				<li *ngIf = 'isLoggedIn ' class="dropdown"><a href="" class="dropdown-toggle" data-toggle='dropdown'>{{isLoggedInUser}}<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li *ngIf = 'isLoggedIn'><a href="#" (click) = "onLogout()"><span class="glyphicon glyphicon glyphicon-off"></span> Logout</a>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>

@@ -1,0 +1,167 @@
+.side li{
+	/*position: absolute;
+    left: 0px;
+    bottom: 0px;
+    right: 0;
+    top: 75px;
+    overflow: auto;
+    height: auto;
+    padding-top: 0px;*/
+    margin-bottom: 5px;
+}
+.divider{
+ border: 0px solid #f0f0f0;  
+ margin-top: 3px;
+ margin-bottom: 3px; 
+}
+.getNotes{
+    margin-left: 12px;    
+}
+.trashRouter{
+    
+    margin-right: 6px;
+}
+.del{
+    position: relative;
+    left: 110%;
+    margin-top: 15px;
+}
+
+.title{
+    margin-left: 12px;
+    margin-top: 5px;
+}
+.dropdown{
+    position: absolute;
+    top: 6%;
+}
+.sidebar{
+	position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 363px;
+    border-right: 1px solid #f0f0f0;
+
+}
+textarea{
+    /*width: 100%;*/
+    left: 348px;
+    position: relative;
+    width:100%;
+    border: 1px solid #f0f0f0;
+}
+.tag-input{
+    position: absolute;
+    top: -17px;
+    left: 348px;
+    padding-left: 65px;
+    border: 1px solid #f0f0f0;
+}
+.remove{
+    color:red;
+    /*margin-right: 10px;*/
+    padding-top: 2px;   
+    padding-right: 7px;
+    position: relative;
+    right: 0;
+    top: 0;
+    display: none;
+    color: red;
+}
+li{
+    list-style: none;
+   
+}
+h4{
+    color: red;
+    margin-top: 100px;
+    text-align: center;
+}
+h3{
+    margin-top: 0px;
+}
+.tag{
+  position: absolute;
+    right: 0px;
+    left: 0px;
+    bottom: 1px;
+    top: -10px;
+    height: 15px;
+    padding-left: 65px;
+    border-bottom: 0px solid #f0f0f0;
+}
+.note{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    top: 15px;
+    padding-top: 4px;
+    padding-bottom: 0px;
+    line-height: 1.4em;
+
+}
+ul .tagUl{
+    list-style-type: none;
+    padding: 3px 0 3px 15px;
+    margin: 3px 0px 0px;
+    overflow: auto;
+    color: #448ac9;
+    line-height: 16px;
+}
+li .tagLi{
+    margin-left: 0;
+    position: relative;
+    top: -2px;
+}
+ul.tagUl li{
+    float: left;
+    margin: 1px 4px 1px 0;
+}
+.add{
+   float: right;
+   margin-top: 15px;
+   
+}
+.noteList{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    right: 0;
+    top: 75px;
+    overflow: auto;
+    height: auto;
+    padding-top: 0px;
+}
+.noteList li{
+    position: relative;
+    padding: 12px 10px 12px 8px
+}
+.p{
+    font-size: 16px;
+    color: #333;
+    /*padding: 0 0 0 18px;*/
+    width: 270px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.p:hover .trash {
+    display: block;
+    color: red;
+}
+.trash{
+    padding-top: 16px;   
+    padding-right: 17px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    color: red;
+}
+.title:hover .remove{
+    display: block;
+    color: red;
+}
