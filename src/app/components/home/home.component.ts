@@ -75,17 +75,13 @@ getNotes(){
             const title = data[key].Title
             const Id=data[key].id
           if(typeof data[key].Title !== typeof undefined ){ 
-            const $key=key
-            const note =data[key].Note
-            const title = data[key].Title
-            const Id=data[key].id
             this.noteData.push({key:$key,Note:note,Title:title,id:Id})
-            console.log(this.noteData)
+            // console.log(this.noteData)
             data[key].Title.forEach(t=>{  
 
-             this.n.push(t)  
+             this.n.push({key:$key,Title:t,Note:note})
             });
-           this.noteData = _.uniqBy(this.noteData,'display');
+           this.n = _.uniqBy(this.n,'display');
            console.log(this.n)
           }
           this.dataValue.push({key:$key,Note:note,Title:title,id:Id})
@@ -129,6 +125,7 @@ getNotes(){
   
   onAddNoteToTrash(note,i){
     if(confirm('Are you sure ?')){
+      this.noteData.splice(i,1);
   	  this.noteService.onAddToTrash(this.authUser.uid,note);
     }
   }
@@ -169,7 +166,6 @@ getNotes(){
   
 
   updateNote(n){
-    
     clearTimeout(this.timer);
     this.timer=setTimeout(()=>{
       this.update(n)
@@ -195,7 +191,9 @@ getNotes(){
   }
   onRemoveNoteFromTrash(note,i){
     if(confirm('Note will be deleted permanently, Sure to continue?')){
+      this.trashedNotes.splice(i,1);
       this.noteService.deleteFromTrash(this.authUser.uid,note);
+
     }
   }
     

@@ -19,7 +19,7 @@
 							<span class="getNotes"><span (click)="getNotes()" >All Notes</span></span>
 						</li>
 						<li class="divider"></li>
-						<li *ngFor="let note of noteData ; let i = index "  class="title" (click)="getTagData(note)" >{{note.Title[0].display}}
+						<li *ngFor="let note of n ; let i = index "  class="title" (click)="getTagData(note)" >{{note.Title.display}}
 							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right remove" (click)="onAddNoteToTrash(note,i)"></a></span>
 						</li>
 					</ul>
