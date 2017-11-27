@@ -165,3 +165,16 @@ ul.tagUl li{
     display: block;
     color: red;
 }
+.preview:hover .onTrash {
+    display: block;
+    color: red;
+}
+.onTrash{
+    padding-top: 16px;   
+    padding-right: 17px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    color: red;
+}

@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   notes={} as Notes;
   authUser:User;
   n=[];
- 
+  trashedNotes=[]
   timer:any;
   noteData=[];
   notesValue=[];
@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   tag:boolean=false;
   getData:boolean=false;
   showAddInput:boolean=false;
+  trashdata:boolean=false;
   constructor(
   	public noteService:NoteService,
   	public authService:AuthService,
@@ -54,7 +55,9 @@ getNotes(){
          this.n=[];
          this.dataValue=[];
          this.notesValue=[];
-        
+         this.tagdata=[];
+         this.trashedNotes=[];
+       
         Object.keys(data).forEach(val=>{
             const $key=val
             const note =data[val].Note
@@ -62,6 +65,7 @@ getNotes(){
             const Id=data[val].id
           this.notesValue.push({key:$key,Note:note,Title:title,id:Id})
         })
+      
         // console.log(this.notesValue)
       if(typeof data === typeof null){
   
@@ -76,12 +80,13 @@ getNotes(){
             const title = data[key].Title
             const Id=data[key].id
             this.noteData.push({key:$key,Note:note,Title:title,id:Id})
-            // console.log(this.noteData)
-            data[key].Title.forEach(t=>{             
+            console.log(this.noteData)
+            data[key].Title.forEach(t=>{  
+
              this.n.push(t)  
             });
-           this.n = _.uniqBy(this.n,'display');
-           // console.log(this.n)
+           this.noteData = _.uniqBy(this.noteData,'display');
+           console.log(this.n)
           }
           this.dataValue.push({key:$key,Note:note,Title:title,id:Id})
         })
@@ -122,33 +127,31 @@ getNotes(){
     console.log($event)
   }
   
-  onAddNoteToTrash(note){
+  onAddNoteToTrash(note,i){
     if(confirm('Are you sure ?')){
   	  this.noteService.onAddToTrash(this.authUser.uid,note);
     }
   }
   
-  getTagData(tag){debugger
+  getTagData(tag){
+    this.trashdata=false;
     this.tagdata=[]
     this.noteData.map(obj=>{
       console.log(obj)
-
-      obj.Title.map(val=>{
-        // console.log(val)
-        if(tag.display === val.display){debugger
-          this.tag=true
-          // console.log(tag.display,val.display)
-         
-          this.tagdata.push({...obj})
-          console.log(this.tagdata);
-        }
+      obj.Title.map(t=>{
+        obj.Title.map(val=>{
+          if(t.display === val.display){
+            this.tag=true
+            this.tagdata.push({...obj})
+            console.log(this.tagdata);
+          }
+        })
       })
     })
   }
 
   
   onRemoveNote(note,i){
-    // this.noteService.onDeleteNote(this.authUser.uid,note)
     console.log(note)
     if(confirm('Are you sure?')){
       this.noteService.onDelete(this.authUser.uid,note)
@@ -156,18 +159,15 @@ getNotes(){
   }
   
   getNoteData(nt,i){
-    // console.log(nt)
-    // console.log(this.dataValue)
     this.dataValue.map(a=>{
-      // console.log(a)
       if(nt.id === a.id){
        this.getData=true
         this.noteValue = nt
-        // console.log(this.noteValue)
-        
       }
     })
   }
+  
+
   updateNote(n){
     
     clearTimeout(this.timer);
@@ -175,7 +175,9 @@ getNotes(){
       this.update(n)
     },5000);
   }
-  update(n){debugger
+  
+
+  update(n){
     console.log(n)
     let key= n.key;
     delete n.key
@@ -191,6 +193,32 @@ getNotes(){
     this.getData=false;
     this.showAddInput=true
   }
+  onRemoveNoteFromTrash(note,i){
+    if(confirm('Note will be deleted permanently, Sure to continue?')){
+      this.noteService.deleteFromTrash(this.authUser.uid,note);
+    }
+  }
+    
+  trashData(){
+     this.trashdata=false;
+     this.tag=false;
+      this.noteService.getTrashedNotes(this.authUser.uid).valueChanges().subscribe((data:any[])=>{
+      
+      console.log(data);
+      // this.trashData()
+      if(typeof data === typeof null){
+        this.trashdata=true;
+        Object.keys(data).forEach(key=>{
+          const $key=key;
+         const note=data[key].Note
+          this.trashedNotes.push({key:$key,Note:note})
+        })
+        console.log(this.trashedNotes)
+        // this.trashdata=true;
+      }
+    })
+      this.trashedNotes=[];
+    }
 
 
 }

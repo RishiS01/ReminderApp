@@ -17,7 +17,7 @@ export class NoteService {
   	this.trash=this.angularFire.list('/trash')
     // this.notes=this.angularFire.object('/notes')
   }
-  addNote(id,n){debugger
+  addNote(id,n){
   	const note =this.angularFire.list(`/user/${id}/notes/`)
   	
   	note.push({...n,id: new Date().valueOf()})
@@ -26,12 +26,12 @@ export class NoteService {
   	return this.angularFire.object(`/user/${id}/notes/`)
 
   }
-  onAddToTrash(id,i){debugger
+  onAddToTrash(id,i){
 
   	const trash= this.angularFire.object(`/user/${id}/trash/${i.key}`)
     trash.set({...i})
     console.log(i)
-    return this.angularFire.object(`user/${id}/notes/${i.key}`).remove()
+    return this.angularFire.object(`user/${id}/notes/${i.key}`).remove();
   }
   deleteFromTrash(id,n){
     return this.angularFire.object(`user/${id}/trash/${n.key}`).remove();
@@ -39,12 +39,12 @@ export class NoteService {
   getTrashedNotes(id){
     return this.angularFire.object(`user/${id}/trash/`);
   }
-  onUpdateNote(id,n,k){debugger
+  onUpdateNote(id,n,k){
     console.log(n.key);
     
    return this.angularFire.object(`user/${id}/notes/${k}`).update(n);
   }
-  onDelete(id,i){debugger
+  onDelete(id,i){
     console.log(id);
     console.log(i);
     return this.angularFire.object(`user/${id}/notes/${i.key}`).remove();

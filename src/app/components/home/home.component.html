@@ -4,11 +4,6 @@
 			<small>
 				<a (click) = "openAddForm()"><span class="glyphicon glyphicon-plus add"></span></a>
 			</small>
-			<!-- <div class="del" >
-				<p >
-				<a class="glyphicon glyphicon-trash" *ngIf='showAddInput || getData' (click)="onRemoveNote(note,i)" ></a>
-			</p>
-			</div> -->
 			<div >
 				<div class="dropdown">
 					<span class="dropdown-toggle" type="button" data-toggle="dropdown">
@@ -17,24 +12,23 @@
 					</span>
 					<ul class="dropdown-menu side">
 						<li>
-							<!-- <a href="" routerLink='/trash' class="glyphicon glyphicon-trash">Trash</a> -->
-							<span class="getNotes"><span type='button' routerLink='/trash' class ="trashRouter">Trash</span></span>
+							<span class="getNotes"><span type='button'  class ="trashRouter" (click)="trashData()">Trash</span></span>
 						</li>
 						<li class="divider"></li>
 						<li>
 							<span class="getNotes"><span (click)="getNotes()" >All Notes</span></span>
 						</li>
 						<li class="divider"></li>
-						<li *ngFor="let note of n ; let i of index"  class="title" (click)="getTagData(note)" >{{note.display}}
-							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right remove" (click)="onAddNoteToTrash(note)"></a></span>
+						<li *ngFor="let note of noteData ; let i = index "  class="title" (click)="getTagData(note)" >{{note.Title[0].display}}
+							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right remove" (click)="onAddNoteToTrash(note,i)"></a></span>
 						</li>
 					</ul>
 					
 				</div>
 				<ul class="noteList">
-					<div *ngIf="!tag">
+					<div *ngIf="!tag && !trashdata">
 
-						<li *ngFor = "let data of notesValue; let i of index"  class="preview">
+						<li *ngFor = "let data of notesValue; let i = index "  class="preview">
 							<p  name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" id="noteData">
 								{{data.Note}}
 							
@@ -44,8 +38,8 @@
 							<li>{{note}}
 						</li>
 					</div>
-					<div *ngIf="tag">
-						<li *ngFor="let data of tagdata ; let i of index">
+					<div *ngIf="tag ">
+						<li *ngFor="let data of tagdata ; let i = index "  class="preview" >
 							<p name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" >
 									{{data.Note}}
 							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onRemoveNote(data,i)"></a></span>
@@ -53,7 +47,17 @@
 							<li>{{note}}
 						</li>
 					</div>
+					<div *ngIf ="trashdata">
+						
+						<li *ngFor="let tnote of trashedNotes; let i = index "  class="preview">
+							<p name="Note" [(ngModel)]="tnote.Note" ngDefaultControl class="p">{{tnote.Note}}
+								<span><a class="glyphicon glyphicon-trash pull-right onTrash" (click)="onRemoveNoteFromTrash(tnote,i	)"></a></span>
+							</p>
+						</li>
+						
+					</div>
 				</ul>
+				
 			</div>
 		</div>
 	<!-- <div class="delete">
@@ -62,7 +66,7 @@
 		<div class="container-fluid ">
 			<div class=" col-md-9">
 			
-				<form #f='ngForm' (keyup)='saveNote(f)'  *ngIf='showAddInput || getData '>
+				<form #f='ngForm' (keyup)='saveNote(f)' >
 					<!-- <div class="del">
 						<a class="glyphicon glyphicon-trash" *ngIf='showAddInput || getData' (click)="onRemoveNote(note,i)"></a>
 					</div> -->
