@@ -107,7 +107,7 @@ getNotes(){
     notes.Note=f.value.note;
   	if(typeof notes.Title === typeof undefined){
   		delete notes.Title
-  	}debugger
+  	}
     if(notes.Note && notes.Note !== ""){
       this.noteService.addNote(this.authUser.uid,notes);
 
@@ -167,9 +167,6 @@ getNotes(){
         
       }
     })
-      // if(nt.id === this.dataValue.id){}
-    
-    // this.noteService.onUpdateNote(this.authUser.uid,this.noteValue)
   }
   updateNote(n){
     

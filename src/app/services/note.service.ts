@@ -26,11 +26,11 @@ export class NoteService {
   	return this.angularFire.object(`/user/${id}/notes/`)
 
   }
-  onAddToTrash(id,i){
+  onAddToTrash(id,i){debugger
 
-  	// const trash= this.angularFire.object(`/user/${id}/trash/${i.key}`)
-   //  trash.set({...i})
-   //  console.log(i)
+  	const trash= this.angularFire.object(`/user/${id}/trash/${i.key}`)
+    trash.set({...i})
+    console.log(i)
     return this.angularFire.object(`user/${id}/notes/${i.key}`).remove()
   }
   deleteFromTrash(id,n){
@@ -44,7 +44,7 @@ export class NoteService {
     
    return this.angularFire.object(`user/${id}/notes/${k}`).update(n);
   }
-  onDelete(id,i){
+  onDelete(id,i){debugger
     console.log(id);
     console.log(i);
     return this.angularFire.object(`user/${id}/notes/${i.key}`).remove();

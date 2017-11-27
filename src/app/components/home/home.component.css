@@ -148,7 +148,7 @@ ul.tagUl li{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.p:hover .trash {
+.preview:hover .trash {
     display: block;
     color: red;
 }

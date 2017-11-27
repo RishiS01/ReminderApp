@@ -37,9 +37,10 @@
 						<li *ngFor = "let data of notesValue; let i of index"  class="preview">
 							<p  name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" id="noteData">
 								{{data.Note}}
-							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onRemoveNote(data,i)"></a></span>
+							
 							<!-- <a class="glyphicon glyphicon-trash trash"  (click)="onRemoveNote(note,i)" ></a>	 -->
 							</p>
+							<a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onRemoveNote(data,i)"></a>
 							<li>{{note}}
 						</li>
 					</div>

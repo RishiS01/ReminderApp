@@ -30,7 +30,7 @@ import * as _ from 'lodash';
 
 export const firebaseCongfig ={
     apiKey: "AIzaSyBbkw2JfHrerFtqdRsYp6HaI7bR-26sVvo",
-    // authDomain: "reminder-app-40b59.firebaseapp.com",
+    authDomain: "reminder-app-40b59.firebaseapp.com",
     databaseURL: "https://reminder-app-40b59.firebaseio.com",
     projectId: "reminder-app-40b59",
     storageBucket: "reminder-app-40b59.appspot.com",
