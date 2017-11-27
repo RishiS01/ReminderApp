@@ -29,12 +29,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as _ from 'lodash'; 
 
 export const firebaseCongfig ={
-  apiKey: "AIzaSyBbkw2JfHrerFtqdRsYp6HaI7bR-26sVvo",
-  authDomain: "reminder-app-40b59.firebaseapp.com",
-  databaseURL: "https://reminder-app-40b59.firebaseio.com",
-  projectId: "reminder-app-40b59",
-  storageBucket: "",
-  messagingSenderId: "921337961427"
+    apiKey: "AIzaSyBbkw2JfHrerFtqdRsYp6HaI7bR-26sVvo",
+    authDomain: "reminder-app-40b59.firebaseapp.com",
+    databaseURL: "https://reminder-app-40b59.firebaseio.com",
+    projectId: "reminder-app-40b59",
+    storageBucket: "reminder-app-40b59.appspot.com",
+    messagingSenderId: "921337961427"
 }
 const appRoutes:Routes=[
   { path:'home',component:HomeComponent,canActivate:[AuthGuard]},

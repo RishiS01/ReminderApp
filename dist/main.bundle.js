@@ -132,7 +132,7 @@ var firebaseCongfig = {
     authDomain: "reminder-app-40b59.firebaseapp.com",
     databaseURL: "https://reminder-app-40b59.firebaseio.com",
     projectId: "reminder-app-40b59",
-    storageBucket: "",
+    storageBucket: "reminder-app-40b59.appspot.com",
     messagingSenderId: "921337961427"
 };
 var appRoutes = [
