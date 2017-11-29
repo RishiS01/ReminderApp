@@ -37,8 +37,8 @@ export const firebaseCongfig ={
     messagingSenderId: "921337961427"
 }
 const appRoutes:Routes=[
-  { path:'home',component:HomeComponent,canActivate:[AuthGuard]},
-  { path:'',component:LoginComponent},
+  { path:'',component:HomeComponent,canActivate:[AuthGuard]},
+  { path:'login',component:LoginComponent},
   { path:'edit-note/:id',component:EditComponent,canActivate:[AuthGuard]},
   { path:'trash',component:TrashComponent,canActivate:[AuthGuard]},
   

@@ -29,6 +29,10 @@ export class NoteService {
   onAddToTrash(id,i){
 
   	const trash= this.angularFire.object(`/user/${id}/trash/${i.key}`)
+    if(typeof i.Title === typeof undefined){
+      delete i.Title
+    }
+    
     trash.set({...i})
     console.log(i)
     return this.angularFire.object(`user/${id}/notes/${i.key}`).remove();

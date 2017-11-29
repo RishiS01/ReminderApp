@@ -49,8 +49,9 @@ export class HomeComponent implements OnInit {
 
 getNotes(){
       this.tag=false;
+      this.trashdata=false;
       this.noteService.getNotes(this.authUser.uid).valueChanges().subscribe((data:any[]) =>{
-        // console.log(data)
+        console.log(data)
        
          this.n=[];
          this.dataValue=[];
@@ -75,6 +76,7 @@ getNotes(){
             const title = data[key].Title
             const Id=data[key].id
           if(typeof data[key].Title !== typeof undefined ){ 
+
             this.noteData.push({key:$key,Note:note,Title:title,id:Id})
             // console.log(this.noteData)
             data[key].Title.forEach(t=>{  
@@ -89,6 +91,7 @@ getNotes(){
         // console.log(this.dataValue)
       }
     })
+       this.notesValue=[];
 }
 
 
@@ -123,14 +126,14 @@ getNotes(){
     console.log($event)
   }
   
-  onAddNoteToTrash(note,i){
+  onAddNoteToTrash(note,i){debugger
     if(confirm('Are you sure ?')){
       this.noteData.splice(i,1);
   	  this.noteService.onAddToTrash(this.authUser.uid,note);
     }
   }
   
-  getTagData(tag){
+  getTagData(tag){debugger
     this.trashdata=false;
     this.tagdata=[]
     this.noteData.map(obj=>{
@@ -148,7 +151,7 @@ getNotes(){
   }
 
   
-  onRemoveNote(note,i){
+  onRemoveNote(note,i){debugger
     console.log(note)
     if(confirm('Are you sure?')){
       this.noteService.onDelete(this.authUser.uid,note)
@@ -189,34 +192,31 @@ getNotes(){
     this.getData=false;
     this.showAddInput=true
   }
-  onRemoveNoteFromTrash(note,i){
+  onRemoveNoteFromTrash(note,i){debugger
     if(confirm('Note will be deleted permanently, Sure to continue?')){
       this.trashedNotes.splice(i,1);
       this.noteService.deleteFromTrash(this.authUser.uid,note);
-
     }
   }
     
   trashData(){
-     this.trashdata=false;
-     this.tag=false;
-      this.noteService.getTrashedNotes(this.authUser.uid).valueChanges().subscribe((data:any[])=>{
-      
+    this.trashdata=false;
+    this.tag=false;
+    this.noteService.getTrashedNotes(this.authUser.uid).valueChanges().subscribe((data:any[])=>{
       console.log(data);
+      this.trashedNotes=[]
       // this.trashData()
       if(typeof data === typeof null){
         this.trashdata=true;
         Object.keys(data).forEach(key=>{
           const $key=key;
-         const note=data[key].Note
+          const note=data[key].Note
           this.trashedNotes.push({key:$key,Note:note})
         })
         console.log(this.trashedNotes)
-        // this.trashdata=true;
       }
     })
-      this.trashedNotes=[];
-    }
+  }
 
 
 }

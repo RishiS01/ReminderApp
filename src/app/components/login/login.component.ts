@@ -12,17 +12,22 @@ export class LoginComponent implements OnInit {
 
   constructor(
   	public authService:AuthService,
-  	public router:Router
+  	private router:Router
   	) { }
 
   ngOnInit() {
+    this.authService.getAuth().subscribe(auth=>{
+      if(auth){
+        this.router.navigate([''])
+      }
+    })
   }
 
   signInWithFacebook(){
   	this.authService.signInWithFacebook()
   	.then((res)=>{
   		console.log(res)
-  		this.router.navigate(['/home'])
+  		this.router.navigate([''])
   	})
   	.catch((err)=>{
   		console.log(err)
@@ -34,7 +39,7 @@ export class LoginComponent implements OnInit {
   	this.authService.signInWithGoogle()
   	.then((res)=>{
   		console.log(res)
-  		this.router.navigate(['/home'])
+  		this.router.navigate([''])
   	})
   	.catch((err)=>{
   		console.log(err)
