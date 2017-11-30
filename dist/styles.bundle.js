@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n*:focus{\n\toutline: 0;\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n*:focus{\n\toutline: 0;\n}\n\n", ""]);
 
 // exports
 

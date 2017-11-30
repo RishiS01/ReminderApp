@@ -20,7 +20,8 @@ export class NoteService {
   addNote(id,n){
   	const note =this.angularFire.list(`/user/${id}/notes/`)
   	
-  	note.push({...n,id: new Date().valueOf()})
+  	 return note.push({...n,id: new Date().valueOf()})
+
   }
   getNotes(id){
   	return this.angularFire.object(`/user/${id}/notes/`)
@@ -43,8 +44,7 @@ export class NoteService {
   getTrashedNotes(id){
     return this.angularFire.object(`user/${id}/trash/`);
   }
-  onUpdateNote(id,n,k){
-    console.log(n.key);
+  onUpdateNote(id,n,k){debugger
     
    return this.angularFire.object(`user/${id}/notes/${k}`).update(n);
   }

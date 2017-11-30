@@ -7,6 +7,7 @@ import { Notes } from '../../Models/Notes';
 import { User } from 'firebase/app';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import * as _ from 'lodash'; 
+import { SlicePipe } from '@angular/common';
 
 
 @Component({
@@ -31,6 +32,11 @@ export class HomeComponent implements OnInit {
   getData:boolean=false;
   showAddInput:boolean=false;
   trashdata:boolean=false;
+  sideNote:any;
+  myForm:NgForm;
+  u:NgForm;
+  key:string;
+  noteUpdate:boolean=false;
   constructor(
   	public noteService:NoteService,
   	public authService:AuthService,
@@ -51,9 +57,8 @@ getNotes(){
       this.tag=false;
       this.trashdata=false;
       this.noteService.getNotes(this.authUser.uid).valueChanges().subscribe((data:any[]) =>{
-        console.log(data)
-       
-         this.n=[];
+        // console.log(data)
+           this.n=[];
          this.dataValue=[];
          this.notesValue=[];
          this.tagdata=[];
@@ -65,9 +70,10 @@ getNotes(){
             const title = data[val].Title
             const Id=data[val].id
           this.notesValue.push({key:$key,Note:note,Title:title,id:Id})
+         
         })
-      
-        // console.log(this.notesValue)
+        
+        console.log(this.notesValue)
       if(typeof data === typeof null){
   
         Object.keys(data).forEach(key=>{
@@ -83,8 +89,8 @@ getNotes(){
 
              this.n.push({key:$key,Title:t,Note:note})
             });
-           this.n = _.uniqBy(this.n,'display');
-           console.log(this.n)
+           // this.n = _.uniqBy(this.n,'display');
+           // console.log(this.n)
           }
           this.dataValue.push({key:$key,Note:note,Title:title,id:Id})
         })
@@ -102,21 +108,47 @@ getNotes(){
     clearTimeout(this.timer);
     this.timer=setTimeout(()=>{
       this.onAddNote(f)
-    },5000);
+    },500);
   }
  
- onAddNote(f:NgForm){ 
-	  const notes={} as Notes;
+ onAddNote(f:NgForm){ debugger
+    let $this = this;
+    // let key = this.noteValue.key;
+    if(typeof this.noteValue !== typeof undefined){
+      
+        this.getData=true;
+        let n= this.noteValue
+        if(typeof this.noteValue.Title === typeof undefined){
+          delete this.noteValue.Title
+        }
+        if(this.noteValue.Note && this.noteValue.Note !== ""){
+          this.noteService.onUpdateNote(this.authUser.uid,n,this.noteValue.key)
+        }
+    }else{    
+    const notes={} as Notes;
   	notes.Title=f.value.title;
     notes.Note=f.value.note;
+    this.myForm=f
   	if(typeof notes.Title === typeof undefined){
   		delete notes.Title
   	}
     if(notes.Note && notes.Note !== ""){
-      this.noteService.addNote(this.authUser.uid,notes);
-
+      if(!this.noteUpdate){debugger
+      this.noteService.addNote(this.authUser.uid,notes)
+      .then(
+        (ref)=>{
+          this.key = ref.key;
+         this.noteUpdate=true
+        });
     }
+    else{
+    this.update(notes,this.key)
   }
+  }
+
+}
+}
+  
   
   onItemAdded($event){
     console.log($event)
@@ -126,32 +158,38 @@ getNotes(){
     console.log($event)
   }
   
-  onAddNoteToTrash(note,i){debugger
+  onAddNoteToTrash(note,i){
     if(confirm('Are you sure ?')){
       this.noteData.splice(i,1);
   	  this.noteService.onAddToTrash(this.authUser.uid,note);
     }
+    this.getNotes();
   }
   
-  getTagData(tag){debugger
+  getTagData(tag){
     this.trashdata=false;
-    this.tagdata=[]
+    this.tagdata=[];
+    tag=Object.assign([],tag)
     this.noteData.map(obj=>{
-      console.log(obj)
-      obj.Title.map(t=>{
-        obj.Title.map(val=>{
-          if(t.display === val.display){
+      
+    obj=  Object.assign([],obj)
+      obj.Title.map(tt=>{
+        console.log(tt);
+          if(tag.Title.display === tt.display){
             this.tag=true
-            this.tagdata.push({...obj})
-            console.log(this.tagdata);
+            console.log()
+            if(_.findIndex(this.tagdata,['key',obj.key]) === -1){
+              this.tagdata.push({...obj})  
+            }
+           console.log(this.tagdata);
           }
         })
-      })
     })
   }
 
+
   
-  onRemoveNote(note,i){debugger
+  onRemoveNote(note,i){
     console.log(note)
     if(confirm('Are you sure?')){
       this.noteService.onDelete(this.authUser.uid,note)
@@ -159,6 +197,8 @@ getNotes(){
   }
   
   getNoteData(nt,i){
+      this.key = nt.key;
+      this.noteUpdate=true
     this.dataValue.map(a=>{
       if(nt.id === a.id){
        this.getData=true
@@ -168,18 +208,26 @@ getNotes(){
   }
   
 
-  updateNote(n){
+  updateNote( n,k){
     clearTimeout(this.timer);
     this.timer=setTimeout(()=>{
-      this.update(n)
-    },5000);
+      this.update(n,k)
+    },500);
   }
   
 
-  update(n){
-    console.log(n)
-    let key= n.key;
-    delete n.key
+  update(n,k){
+    console.log(n) 
+    let key
+    if(k){
+       key= k;
+      delete n.key
+    }
+    else{
+        key= n.key;
+      delete n.key
+    }
+    
     if(typeof n.Title === typeof undefined){
       delete n.Title
     }
@@ -189,10 +237,16 @@ getNotes(){
     
   }
   openAddForm(){
+    this.key= null;
     this.getData=false;
-    this.showAddInput=true
+    this.showAddInput=true;
+    this.noteUpdate=false;
+    if(this.myForm){
+      this.myForm.reset();
+
+    }
   }
-  onRemoveNoteFromTrash(note,i){debugger
+  onRemoveNoteFromTrash(note,i){
     if(confirm('Note will be deleted permanently, Sure to continue?')){
       this.trashedNotes.splice(i,1);
       this.noteService.deleteFromTrash(this.authUser.uid,note);
@@ -212,6 +266,7 @@ getNotes(){
           const $key=key;
           const note=data[key].Note
           this.trashedNotes.push({key:$key,Note:note})
+
         })
         console.log(this.trashedNotes)
       }

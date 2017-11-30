@@ -24,11 +24,11 @@
     margin-top: 5px;
 }
 .dropdown{
-    position: absolute;
+    /*position: absolute;*/
     top: 6%;
 }
 .sidebar{
-	position: absolute;
+	/*position: absolute;*/
     z-index: 1;
     left: 0;
     top: 0;
@@ -39,22 +39,24 @@
 }
 textarea{
     padding: 10px 100px 10px 20px;
-    left: 348px;
+    left: 0px;
     position: absolute;
-    width:109%;
-    border: 1px solid #f0f0f0;
+    width:126%;
+    border: 0px solid #f0f0f0;
     max-height: 100%;
-    min-height: 810px;
+    min-height: 799px;
     height: 100%;
     box-sizing: border-box;
+    margin-left: -31px;
 
 }
 .tag-input{
-    position: absolute;
-    top: -17px;
-    left: 348px;
-    padding-left: 65px;
-    border: 1px solid #f0f0f0;
+    /*position: absolute;
+    top: -21px;
+    left: 346px;*/
+    padding-left: 0px;
+    margin-left: -15px;
+    border: 0px solid #f0f0f0;
 }
 .remove{
     color:red;
@@ -90,14 +92,14 @@ h3{
     border-bottom: 0px solid #f0f0f0;
 }
 .note{
-    position: absolute;
+    /*position: absolute;
     right: 0px;
-    left: 0px;
+    left: 332px;
     bottom: 0px;
     top: 15px;
     padding-top: 4px;
     padding-bottom: 0px;
-    line-height: 1.4em;
+    line-height: 1.4em;*/
     
 }
 ul .tagUl{
@@ -119,18 +121,20 @@ ul.tagUl li{
 }
 .add{
    float: right;
-   margin-top: 15px;
+   margin-top: -36px;
    
 }
 .noteList{
-    position: absolute;
+    /*position: absolute;
     left: 0px;
     bottom: 0px;
     right: 0;
-    top: 75px;
+    top: 75px;*/
     overflow: auto;
     height: auto;
     padding-top: 0px;
+    height: 800px;
+    margin-top: 10px;
 }
 .noteList li{
     position: relative;
@@ -178,8 +182,34 @@ ul.tagUl li{
 .text{
     font-size: 16px;
     color: #333;
-    width: 270px;
+    /*width: 270px;*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.containt{
+    
+}
+@media only screen and (max-width: 768px){
+    .sidebar{
+        height: auto;
+    }
+    .noteList{
+        height: auto;
+        padding: 0px;
+    }
+    textarea{
+    /*padding: 10px 100px 10px 20px;*/
+    left: 0px;
+    position: absolute;
+    width:126%;
+    border: 0px solid #f0f0f0;
+    max-height: 100%;
+    min-height: 799px;
+    height: 100%;
+    box-sizing: border-box;
+    margin-left: -31px;
+
+}
+
 }

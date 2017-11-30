@@ -252,7 +252,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".side li{\n    margin-bottom: 5px;\n}\n.divider{\n border: 0px solid #f0f0f0;  \n margin-top: 3px;\n margin-bottom: 3px; \n}\n.getNotes{\n    margin-left: 12px;    \n}\n.trashRouter{\n    \n    margin-right: 6px;\n}\n.del{\n    position: relative;\n    left: 110%;\n    margin-top: 15px;\n}\n\n.title{\n    margin-left: 12px;\n    margin-top: 5px;\n}\n.dropdown{\n    position: absolute;\n    top: 6%;\n}\n.sidebar{\n\tposition: absolute;\n    z-index: 1;\n    left: 0;\n    top: 0;\n    bottom: 0;\n    width: 363px;\n    border-right: 1px solid #f0f0f0;\n\n}\ntextarea{\n    padding: 10px 100px 10px 20px;\n    left: 348px;\n    position: absolute;\n    width:109%;\n    border: 1px solid #f0f0f0;\n    max-height: 100%;\n    min-height: 810px;\n    height: 100%;\n    box-sizing: border-box;\n\n}\n.tag-input{\n    position: absolute;\n    top: -17px;\n    left: 348px;\n    padding-left: 65px;\n    border: 1px solid #f0f0f0;\n}\n.remove{\n    color:red;\n    /*margin-right: 10px;*/\n    padding-top: 2px;   \n    padding-right: 7px;\n    position: relative;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\nli{\n    list-style: none;\n   \n}\nh4{\n    color: red;\n    margin-top: 100px;\n    text-align: center;\n}\nh3{\n    margin-top: 0px;\n}\n.tag{\n  position: absolute;\n    right: 0px;\n    left: 0px;\n    bottom: 1px;\n    top: -10px;\n    height: 15px;\n    padding-left: 65px;\n    border-bottom: 0px solid #f0f0f0;\n}\n.note{\n    position: absolute;\n    right: 0px;\n    left: 0px;\n    bottom: 0px;\n    top: 15px;\n    padding-top: 4px;\n    padding-bottom: 0px;\n    line-height: 1.4em;\n    \n}\nul .tagUl{\n    list-style-type: none;\n    padding: 3px 0 3px 15px;\n    margin: 3px 0px 0px;\n    overflow: auto;\n    color: #448ac9;\n    line-height: 16px;\n}\nli .tagLi{\n    margin-left: 0;\n    position: relative;\n    top: -2px;\n}\nul.tagUl li{\n    float: left;\n    margin: 1px 4px 1px 0;\n}\n.add{\n   float: right;\n   margin-top: 15px;\n   \n}\n.noteList{\n    position: absolute;\n    left: 0px;\n    bottom: 0px;\n    right: 0;\n    top: 75px;\n    overflow: auto;\n    height: auto;\n    padding-top: 0px;\n}\n.noteList li{\n    position: relative;\n    padding: 12px 10px 12px 8px\n}\n.p{\n    font-size: 16px;\n    color: #333;\n    /*padding: 0 0 0 18px;*/\n    width: 270px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.preview:hover .trash {\n    display: block;\n    color: red;\n}\n.trash{\n    padding-top: 16px;   \n    padding-right: 17px;\n    position: absolute;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\n.title:hover .remove{\n    display: block;\n    color: red;\n}\n.preview:hover .onTrash {\n    display: block;\n    color: red;\n}\n.onTrash{\n    padding-top: 16px;   \n    padding-right: 17px;\n    position: absolute;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\n.text{\n    font-size: 16px;\n    color: #333;\n    width: 270px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}", ""]);
+exports.push([module.i, ".side li{\n    margin-bottom: 5px;\n}\n.divider{\n border: 0px solid #f0f0f0;  \n margin-top: 3px;\n margin-bottom: 3px; \n}\n.getNotes{\n    margin-left: 12px;    \n}\n.trashRouter{\n    \n    margin-right: 6px;\n}\n.del{\n    position: relative;\n    left: 110%;\n    margin-top: 15px;\n}\n\n.title{\n    margin-left: 12px;\n    margin-top: 5px;\n}\n.dropdown{\n    /*position: absolute;*/\n    top: 6%;\n}\n.sidebar{\n\t/*position: absolute;*/\n    z-index: 1;\n    left: 0;\n    top: 0;\n    bottom: 0;\n    width: 363px;\n    border-right: 1px solid #f0f0f0;\n\n}\ntextarea{\n    padding: 10px 100px 10px 20px;\n    left: 0px;\n    position: absolute;\n    width:126%;\n    border: 0px solid #f0f0f0;\n    max-height: 100%;\n    min-height: 799px;\n    height: 100%;\n    box-sizing: border-box;\n    margin-left: -31px;\n\n}\n.tag-input{\n    /*position: absolute;\n    top: -21px;\n    left: 346px;*/\n    padding-left: 0px;\n    margin-left: -15px;\n    border: 0px solid #f0f0f0;\n}\n.remove{\n    color:red;\n    /*margin-right: 10px;*/\n    padding-top: 2px;   \n    padding-right: 7px;\n    position: relative;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\nli{\n    list-style: none;\n   \n}\nh4{\n    color: red;\n    margin-top: 100px;\n    text-align: center;\n}\nh3{\n    margin-top: 0px;\n}\n.tag{\n  position: absolute;\n    right: 0px;\n    left: 0px;\n    bottom: 1px;\n    top: -10px;\n    height: 15px;\n    padding-left: 65px;\n    border-bottom: 0px solid #f0f0f0;\n}\n.note{\n    /*position: absolute;\n    right: 0px;\n    left: 332px;\n    bottom: 0px;\n    top: 15px;\n    padding-top: 4px;\n    padding-bottom: 0px;\n    line-height: 1.4em;*/\n    \n}\nul .tagUl{\n    list-style-type: none;\n    padding: 3px 0 3px 15px;\n    margin: 3px 0px 0px;\n    overflow: auto;\n    color: #448ac9;\n    line-height: 16px;\n}\nli .tagLi{\n    margin-left: 0;\n    position: relative;\n    top: -2px;\n}\nul.tagUl li{\n    float: left;\n    margin: 1px 4px 1px 0;\n}\n.add{\n   float: right;\n   margin-top: -36px;\n   \n}\n.noteList{\n    /*position: absolute;\n    left: 0px;\n    bottom: 0px;\n    right: 0;\n    top: 75px;*/\n    overflow: auto;\n    height: auto;\n    padding-top: 0px;\n    height: 800px;\n    margin-top: 10px;\n}\n.noteList li{\n    position: relative;\n    padding: 12px 10px 12px 8px\n}\n.p{\n    font-size: 16px;\n    color: #333;\n    /*padding: 0 0 0 18px;*/\n    width: 270px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.preview:hover .trash {\n    display: block;\n    color: red;\n}\n.trash{\n    padding-top: 16px;   \n    padding-right: 17px;\n    position: absolute;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\n.title:hover .remove{\n    display: block;\n    color: red;\n}\n.preview:hover .onTrash {\n    display: block;\n    color: red;\n}\n.onTrash{\n    padding-top: 16px;   \n    padding-right: 17px;\n    position: absolute;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\n.text{\n    font-size: 16px;\n    color: #333;\n    /*width: 270px;*/\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.containt{\n    \n}\n@media only screen and (max-width: 768px){\n    .sidebar{\n        height: auto;\n    }\n    .noteList{\n        height: auto;\n        padding: 0px;\n    }\n    textarea{\n    /*padding: 10px 100px 10px 20px;*/\n    left: 0px;\n    position: absolute;\n    width:126%;\n    border: 0px solid #f0f0f0;\n    max-height: 100%;\n    min-height: 799px;\n    height: 100%;\n    box-sizing: border-box;\n    margin-left: -31px;\n\n}\n\n}", ""]);
 
 // exports
 
@@ -265,7 +265,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid cf\">\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-3  sidebar\">\n\t\t\t<small>\n\t\t\t\t<a (click) = \"openAddForm()\"><span class=\"glyphicon glyphicon-plus add\"></span></a>\n\t\t\t</small>\n\t\t\t<div >\n\t\t\t\t<div class=\"dropdown\">\n\t\t\t\t\t<span class=\"dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">\n\t\t\t\t\t\tTags\n\t\t\t\t\t\t<span class=\"caret\"></span>\n\t\t\t\t\t</span>\n\t\t\t\t\t<ul class=\"dropdown-menu side\">\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<span class=\"getNotes\"><span type='button'  class =\"trashRouter\" (click)=\"trashData()\">Trash</span></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"divider\"></li>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<span class=\"getNotes\"><span (click)=\"getNotes()\" >All Notes</span></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"divider\"></li>\n\t\t\t\t\t\t<li *ngFor=\"let note of n ; let i = index \"  class=\"title\" (click)=\"getTagData(note)\" >{{note.Title.display}}\n\t\t\t\t\t\t\t<span ><a type='button'  class =\"glyphicon glyphicon-trash pull-right remove\" (click)=\"onAddNoteToTrash(note,i)\"></a></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"noteList\">\n\t\t\t\t\t<div *ngIf=\"!tag && !trashdata\">\n\n\t\t\t\t\t\t<li *ngFor = \"let data of notesValue; let i = index \"  class=\"preview\">\n\t\t\t\t\t\t\t<p  name=\"Note\" [(ngModel)]=\"data.Note\" ngDefaultControl (click)=\"getNoteData(data,i)\" class=\"p\" id=\"noteData\">\n\t\t\t\t\t\t\t\t{{data.Note}}\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<a type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onAddNoteToTrash(data,i)\"></a>\n\t\t\t\t\t\t\t<li class=\"text\">{{note}}\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div *ngIf=\"tag \">\n\t\t\t\t\t\t<li *ngFor=\"let data of tagdata ; let i = index \"  class=\"preview\" >\n\t\t\t\t\t\t\t<p name=\"Note\" [(ngModel)]=\"data.Note\" ngDefaultControl (click)=\"getNoteData(data,i)\" class=\"p\" >\n\t\t\t\t\t\t\t\t\t{{data.Note}}\n\t\t\t\t\t\t\t<span ><a type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onRemoveNote(data,i)\"></a></span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<li class=\"text\">{{note}}\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div *ngIf =\"trashdata\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<li *ngFor=\"let tnote of trashedNotes; let i = index \"  class=\"preview\">\n\t\t\t\t\t\t\t<p name=\"Note\" [(ngModel)]=\"tnote.Note\" ngDefaultControl class=\"p\">{{tnote.Note}}\n\t\t\t\t\t\t\t\t<span><a class=\"glyphicon glyphicon-trash pull-right onTrash\" (click)=\"onRemoveNoteFromTrash(tnote,i)\"></a></span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"container-fluid \">\n\t\t\t<div class=\" col-xs-9\">\n\t\t\t\n\t\t\t\t<form #f='ngForm' (keyup)='saveNote(f)' *ngIf=\"showAddInput\">\n\t\t\t\t\t<div class=\"tag-input\">\n\t\t\t\t\t\t<tag-input *ngIf=\"!getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='title'\n\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t\t<tag-input *ngIf=\"getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='noteValue.Title'\n\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">{{noteValue.Title}}\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"note\" >\n\n\t\t\t\t\t\t<textarea *ngIf=\"!getData\" rows=\"100%\" cols=\"100%\" name=\"note\" placeholder=\"note..\" [(ngModel)]=\"note\"></textarea >\n\t\t\t\t\t\t<textarea *ngIf=\"getData\" rows=\"100%\" cols=\"100%\" name=\"Note\"  [(ngModel)]=\"noteValue.Note\" >{{noteValue.Note}}</textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<form  (keyup)='updateNote(noteValue)'  *ngIf='getData'>\n\t\t\t\t\t<div class=\"tag-input\">\n\t\t\t\t\t\t<tag-input *ngIf=\"getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='noteValue.Title'\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">{{noteValue.Title}}\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"note\" >\n\t\t\t\t\t\t<textarea *ngIf=\"getData\" rows=\"100%\" cols=\"100%\" name=\"Note\"  [(ngModel)]=\"noteValue.Note\" >{{noteValue.Note}}</textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+module.exports = "<div class=\"container-fluid cf\">\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-2 col-md-2 sidebar\">\n\t\t\t<small>\n\t\t\t\t<a  (click) = \"openAddForm()\"><span class=\"glyphicon glyphicon-plus add\"></span></a>\n\t\t\t</small>\n\t\t\t<div >\n\t\t\t\t<div class=\"dropdown\">\n\t\t\t\t\t<span class=\"dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">\n\t\t\t\t\t\tTags\n\t\t\t\t\t\t<span class=\"caret\"></span>\n\t\t\t\t\t</span>\n\t\t\t\t\t<ul class=\"dropdown-menu side\">\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<span class=\"getNotes\"><span type='button'  class =\"trashRouter\" (click)=\"trashData()\">Trash</span></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"divider\"></li>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<span class=\"getNotes\"><span (click)=\"getNotes()\" >All Notes</span></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"divider\"></li>\n\t\t\t\t\t\t<li *ngFor=\"let note of n ; let i = index \"  class=\"title\" (click)=\"getTagData(note)\" >{{note.Title.display}}\n\t\t\t\t\t\t\t<span ><a type='button'  class =\"glyphicon glyphicon-trash pull-right remove\" (click)=\"onAddNoteToTrash(note,i)\"></a></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"noteList\">\n\t\t\t\t\t<div *ngIf=\"!tag && !trashdata\">\n\n\t\t\t\t\t\t<li *ngFor = \"let data of notesValue; let i = index \"  class=\"preview\">\n\t\t\t\t\t\t\t<p  name=\"Note\" [(ngModel)]=\"data.Note\" ngDefaultControl (click)=\"getNoteData(data,i)\" class=\"p\" id=\"noteData\">\n\t\t\t\t\t\t\t\t{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<a type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onAddNoteToTrash(data,i)\"></a>\n\t\t\t\t\t\t\t<li class=\"text\">{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div *ngIf=\"tag \">\n\t\t\t\t\t\t<li *ngFor=\"let data of tagdata ; let i = index \"  class=\"preview\" >\n\t\t\t\t\t\t\t<p name=\"Note\" [(ngModel)]=\"data.Note\" ngDefaultControl (click)=\"getNoteData(data,i)\" class=\"p\" >\n\t\t\t\t\t\t\t\t\t{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t<span ><a type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onRemoveNote(data,i)\"></a></span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<li class=\"text\" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div *ngIf =\"trashdata\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<li *ngFor=\"let tnote of trashedNotes; let i = index \"  class=\"preview\">\n\t\t\t\t\t\t\t<p name=\"Note\" [(ngModel)]=\"tnote.Note\" ngDefaultControl class=\"p\">{{tnote.Note | slice:0:25}}{{tnote.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t\t<span><a class=\"glyphicon glyphicon-trash pull-right onTrash\" (click)=\"onRemoveNoteFromTrash(tnote,i)\"></a></span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"container-fluid \">\n\t\t\t<div class=\"col-xs-8 col-md-8 \">\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t<form #f='ngForm' (keyup)='saveNote(f)' *ngIf=\"showAddInput || getData\">\n\t\t\t\t\t<div class=\"tag-input col-xs-12\">\n\t\t\t\t\t\t<!-- <div class=\"col-xs-12\"> -->\n\t\t\t\t\t\t<tag-input *ngIf=\"!getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='title'\n\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t\t<tag-input *ngIf=\"getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='noteValue.Title'\n\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t<!-- </div> -->\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"note col-xs-12\" >\n\t\t\t\t\t\t<div class=\"col-xs-12\" >\n\t\t\t\t\t\t\t<textarea *ngIf=\"!getData\" rows=\"100%\" cols=\"100%\" name=\"note\" placeholder=\"note..\" [(ngModel)]=\"note\" ></textarea >\n\t\t\t\t\t\t\t<textarea *ngIf=\"getData\" rows=\"100%\" cols=\"100%\" name=\"Note\"  [(ngModel)]=\"noteValue.Note\" >{{noteValue.Note}}</textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<!-- <form #u='ngForm' (keyup)='updateNote(noteValue)'  *ngIf='getData'>\n\t\t\t\t\t<div class=\"tag-input\">\n\t\t\t\t\t\t<tag-input *ngIf=\"getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='noteValue.Title'\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">{{noteValue.Title}}\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"note\" >\n\t\t\t\t\t\t<textarea *ngIf=\"getData\" rows=\"100%\" cols=\"100%\" name=\"Note\"  [(ngModel)]=\"noteValue.Note\" >{{noteValue.Note}}</textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</form> -->\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
 
 /***/ }),
 
@@ -323,6 +323,7 @@ var HomeComponent = (function () {
         this.getData = false;
         this.showAddInput = false;
         this.trashdata = false;
+        this.noteUpdate = false;
         this.authService.getAuth().subscribe(function (auth) {
             _this.authUser = auth;
         });
@@ -335,7 +336,7 @@ var HomeComponent = (function () {
         this.tag = false;
         this.trashdata = false;
         this.noteService.getNotes(this.authUser.uid).valueChanges().subscribe(function (data) {
-            console.log(data);
+            // console.log(data)
             _this.n = [];
             _this.dataValue = [];
             _this.notesValue = [];
@@ -348,7 +349,7 @@ var HomeComponent = (function () {
                 var Id = data[val].id;
                 _this.notesValue.push({ key: $key, Note: note, Title: title, id: Id });
             });
-            // console.log(this.notesValue)
+            console.log(_this.notesValue);
             if (typeof data === typeof null) {
                 Object.keys(data).forEach(function (key) {
                     var $key = key;
@@ -361,8 +362,8 @@ var HomeComponent = (function () {
                         data[key].Title.forEach(function (t) {
                             _this.n.push({ key: $key, Title: t, Note: note });
                         });
-                        _this.n = __WEBPACK_IMPORTED_MODULE_5_lodash__["uniqBy"](_this.n, 'display');
-                        console.log(_this.n);
+                        // this.n = _.uniqBy(this.n,'display');
+                        // console.log(this.n)
                     }
                     _this.dataValue.push({ key: $key, Note: note, Title: title, id: Id });
                 });
@@ -376,17 +377,44 @@ var HomeComponent = (function () {
         clearTimeout(this.timer);
         this.timer = setTimeout(function () {
             _this.onAddNote(f);
-        }, 5000);
+        }, 500);
     };
     HomeComponent.prototype.onAddNote = function (f) {
-        var notes = {};
-        notes.Title = f.value.title;
-        notes.Note = f.value.note;
-        if (typeof notes.Title === typeof undefined) {
-            delete notes.Title;
+        var _this = this;
+        debugger;
+        var $this = this;
+        // let key = this.noteValue.key;
+        if (typeof this.noteValue !== typeof undefined) {
+            this.getData = true;
+            var n = this.noteValue;
+            if (typeof this.noteValue.Title === typeof undefined) {
+                delete this.noteValue.Title;
+            }
+            if (this.noteValue.Note && this.noteValue.Note !== "") {
+                this.noteService.onUpdateNote(this.authUser.uid, n, this.noteValue.key);
+            }
         }
-        if (notes.Note && notes.Note !== "") {
-            this.noteService.addNote(this.authUser.uid, notes);
+        else {
+            var notes = {};
+            notes.Title = f.value.title;
+            notes.Note = f.value.note;
+            this.myForm = f;
+            if (typeof notes.Title === typeof undefined) {
+                delete notes.Title;
+            }
+            if (notes.Note && notes.Note !== "") {
+                if (!this.noteUpdate) {
+                    debugger;
+                    this.noteService.addNote(this.authUser.uid, notes)
+                        .then(function (ref) {
+                        _this.key = ref.key;
+                        _this.noteUpdate = true;
+                    });
+                }
+                else {
+                    this.update(notes, this.key);
+                }
+            }
         }
     };
     HomeComponent.prototype.onItemAdded = function ($event) {
@@ -396,32 +424,33 @@ var HomeComponent = (function () {
         console.log($event);
     };
     HomeComponent.prototype.onAddNoteToTrash = function (note, i) {
-        debugger;
         if (confirm('Are you sure ?')) {
             this.noteData.splice(i, 1);
             this.noteService.onAddToTrash(this.authUser.uid, note);
         }
+        this.getNotes();
     };
     HomeComponent.prototype.getTagData = function (tag) {
         var _this = this;
-        debugger;
         this.trashdata = false;
         this.tagdata = [];
+        tag = Object.assign([], tag);
         this.noteData.map(function (obj) {
-            console.log(obj);
-            obj.Title.map(function (t) {
-                obj.Title.map(function (val) {
-                    if (t.display === val.display) {
-                        _this.tag = true;
+            obj = Object.assign([], obj);
+            obj.Title.map(function (tt) {
+                console.log(tt);
+                if (tag.Title.display === tt.display) {
+                    _this.tag = true;
+                    console.log();
+                    if (__WEBPACK_IMPORTED_MODULE_5_lodash__["findIndex"](_this.tagdata, ['key', obj.key]) === -1) {
                         _this.tagdata.push(__assign({}, obj));
-                        console.log(_this.tagdata);
                     }
-                });
+                    console.log(_this.tagdata);
+                }
             });
         });
     };
     HomeComponent.prototype.onRemoveNote = function (note, i) {
-        debugger;
         console.log(note);
         if (confirm('Are you sure?')) {
             this.noteService.onDelete(this.authUser.uid, note);
@@ -429,6 +458,8 @@ var HomeComponent = (function () {
     };
     HomeComponent.prototype.getNoteData = function (nt, i) {
         var _this = this;
+        this.key = nt.key;
+        this.noteUpdate = true;
         this.dataValue.map(function (a) {
             if (nt.id === a.id) {
                 _this.getData = true;
@@ -436,17 +467,24 @@ var HomeComponent = (function () {
             }
         });
     };
-    HomeComponent.prototype.updateNote = function (n) {
+    HomeComponent.prototype.updateNote = function (n, k) {
         var _this = this;
         clearTimeout(this.timer);
         this.timer = setTimeout(function () {
-            _this.update(n);
-        }, 5000);
+            _this.update(n, k);
+        }, 500);
     };
-    HomeComponent.prototype.update = function (n) {
+    HomeComponent.prototype.update = function (n, k) {
         console.log(n);
-        var key = n.key;
-        delete n.key;
+        var key;
+        if (k) {
+            key = k;
+            delete n.key;
+        }
+        else {
+            key = n.key;
+            delete n.key;
+        }
         if (typeof n.Title === typeof undefined) {
             delete n.Title;
         }
@@ -455,11 +493,15 @@ var HomeComponent = (function () {
         }
     };
     HomeComponent.prototype.openAddForm = function () {
+        this.key = null;
         this.getData = false;
         this.showAddInput = true;
+        this.noteUpdate = false;
+        if (this.myForm) {
+            this.myForm.reset();
+        }
     };
     HomeComponent.prototype.onRemoveNoteFromTrash = function (note, i) {
-        debugger;
         if (confirm('Note will be deleted permanently, Sure to continue?')) {
             this.trashedNotes.splice(i, 1);
             this.noteService.deleteFromTrash(this.authUser.uid, note);
@@ -609,7 +651,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".trash{\n\tpadding: 3px 20px;\n}\n", ""]);
+exports.push([module.i, ".trash{\n\tpadding: 3px 20px;\n}\n.nav{\n\tmargin-bottom: 0px;\n}\n", ""]);
 
 // exports
 
@@ -622,7 +664,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\t<nav class=\"navbar navbar-default \">\n\t\t<div class=\"container-fluid\">\n\t\t\t<ul class=\"nav navbar-nav pull-right\">\n\t\t\t\t<li *ngIf = 'isLoggedIn ' class=\"dropdown\"><a href=\"\" class=\"dropdown-toggle\" data-toggle='dropdown'>{{isLoggedInUser}}<span class=\"caret\"></span></a>\n\t\t\t\t\t<ul class=\"dropdown-menu\">\n\t\t\t\t\t\t<li *ngIf = 'isLoggedIn'><a href=\"#\" (click) = \"onLogout()\"><span class=\"glyphicon glyphicon glyphicon-off\"></span> Logout</a>\n\t\t\t\t\t</ul>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t</nav>\n</div>"
+module.exports = "<div>\n\t<nav class=\"navbar navbar-default nav\">\n\t\t<div class=\"container-fluid\">\n\t\t\t<ul class=\"nav navbar-nav pull-right\">\n\t\t\t\t<li *ngIf = 'isLoggedIn ' class=\"dropdown\"><a href=\"\" class=\"dropdown-toggle\" data-toggle='dropdown'>{{isLoggedInUser}}<span class=\"caret\"></span></a>\n\t\t\t\t\t<ul class=\"dropdown-menu\">\n\t\t\t\t\t\t<li *ngIf = 'isLoggedIn'><a href=\"#\" (click) = \"onLogout()\"><span class=\"glyphicon glyphicon glyphicon-off\"></span> Logout</a>\n\t\t\t\t\t</ul>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t</nav>\n</div>"
 
 /***/ }),
 
@@ -1038,7 +1080,7 @@ var NoteService = (function () {
     }
     NoteService.prototype.addNote = function (id, n) {
         var note = this.angularFire.list("/user/" + id + "/notes/");
-        note.push(__assign({}, n, { id: new Date().valueOf() }));
+        return note.push(__assign({}, n, { id: new Date().valueOf() }));
     };
     NoteService.prototype.getNotes = function (id) {
         return this.angularFire.object("/user/" + id + "/notes/");
@@ -1059,7 +1101,7 @@ var NoteService = (function () {
         return this.angularFire.object("user/" + id + "/trash/");
     };
     NoteService.prototype.onUpdateNote = function (id, n, k) {
-        console.log(n.key);
+        debugger;
         return this.angularFire.object("user/" + id + "/notes/" + k).update(n);
     };
     NoteService.prototype.onDelete = function (id, i) {
