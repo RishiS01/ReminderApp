@@ -57,8 +57,6 @@ export class HomeComponent implements OnInit {
 		this.authService.getAuth().subscribe(auth=>{
       this.authUser=auth;
     })
-
-
   }
 
   ngOnInit() {
