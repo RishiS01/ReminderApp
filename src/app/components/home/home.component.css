@@ -36,7 +36,7 @@
     top: 0;
     bottom: 0;
     width: 363px;
-    border-right: 1px solid #f0f0f0;
+    border-right: 0px solid #f0f0f0;
 
 }
 textarea{
@@ -51,7 +51,7 @@ textarea{
     box-sizing: border-box;
     margin-left: -31px;
     resize: none;
-    border-left: 1px solid #f0f0f0;
+    border-left: 0px solid #f0f0f0;
     /*border-top: 1px solid #f0f0f0;*/
 }
 .tag-input{
@@ -279,7 +279,7 @@ ul.tagUl li{
         height: 100%;
         box-sizing: border-box;
         margin-left: -31px;
-        /*border-top: 1px solid #f0f0f0;*/
+        
 
     }
 }
@@ -293,6 +293,6 @@ ul.tagUl li{
   .add{
         position: fixed;
         left:15%;
-        top:8%;
+        top:7%;
     }
 }
