@@ -36,7 +36,7 @@
     top: 0;
     bottom: 0;
     width: 363px;
-    border-right: 0px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
 
 }
 textarea{
@@ -51,7 +51,7 @@ textarea{
     box-sizing: border-box;
     margin-left: -31px;
     resize: none;
-    border-left: 0px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
     /*border-top: 1px solid #f0f0f0;*/
 }
 .tag-input{
@@ -95,17 +95,7 @@ h3{
     padding-left: 65px;
     border-bottom: 1px solid #f0f0f0;
 }
-.note{
-    /*position: absolute;
-    right: 0px;
-    left: 332px;
-    bottom: 0px;
-    top: 15px;
-    padding-top: 4px;
-    padding-bottom: 0px;
-    line-height: 1.4em;*/
-    
-}
+
 ul .tagUl{
     list-style-type: none;
     padding: 3px 0 3px 15px;
@@ -129,11 +119,6 @@ ul.tagUl li{
    
 }
 .noteList{
-    /*position: absolute;
-    left: 0px;
-    bottom: 0px;
-    right: 0;
-    top: 75px;*/
     overflow: auto;
     height: auto;
     padding-top: 0px;
@@ -147,7 +132,6 @@ ul.tagUl li{
 .p{
     font-size: 16px;
     color: #333;
-    /*padding: 0 0 0 18px;*/
     width: 270px;
     white-space: nowrap;
     overflow: hidden;
@@ -159,8 +143,6 @@ ul.tagUl li{
     color: red;
 }
 .trash{
-    /*padding-top: 16px;   
-    padding-right: 12px;*/
     position: absolute;
     right: 0;
     top: 0;
@@ -215,6 +197,7 @@ ul.tagUl li{
 @media only screen and (max-width:768px)  {
     .sidebar{
         height: auto;
+        border-right: 0px solid #f0f0f0;
     }
     .noteList{
         height: auto;
@@ -225,13 +208,12 @@ ul.tagUl li{
         left: 0px;
         position: absolute;
         width:126%;
-        border-left: 0px solid #f0f0f0;
+        border-left: 1px solid #f0f0f0;
         max-height: 100%;
         min-height: 799px;
         height: 100%;
         box-sizing: border-box;
         margin-left: -31px;
-        /*border-top: 1px solid #f0f0f0;*/
 
     }
     .add{
@@ -263,6 +245,7 @@ ul.tagUl li{
 @media only screen and (max-width: 1024px){
     .sidebar{
         height: auto;
+        border-right: 0px solid #f0f0f0;
     }
     .noteList{
         height: auto;
@@ -279,16 +262,8 @@ ul.tagUl li{
         height: 100%;
         box-sizing: border-box;
         margin-left: -31px;
-        
-
     }
 }
-/*.ng2-tag-input  {
-    border-bottom: 0px solid white;
-}
-*/
-
-
 @media only screen and (max-width: 576px){
   .add{
         position: fixed;

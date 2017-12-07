@@ -63,18 +63,18 @@
 		<div class="container-fluid ">
 			<div class="col-xs-8 col-md-8 notePad">
 				<form #f='ngForm' (keyup)='saveNote(f)'  *ngIf="showAddInput || getData" >
-					<div class="tag-input col-xs-12">
-						<div class="col-xs-12">
+					<div class="tag-input col-xs-12" >
+						<div class="col-xs-12" >
 							<tag-input *ngIf="!getData" name="title"  [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='title'
-									(onRemove)="onItemRemoved($event)"
+									(onRemove)="onItemRemoved($event,f)"
 									(onAdd)="onItemAdded($event)"
-									[editable]='true' (onTagEdited)="onTagEdited($event)">
+									[editable]='true' (onTagEdited)="onTagEdited($event,i)">
 								<tag-input-dropdown [autocompleteItems]="notesWithTags"
 									[autocompleteItems]="true">
 								</tag-input-dropdown>
 							</tag-input>
 							<tag-input *ngIf="getData" name="title"  [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='editNotes.Title'
-									(onRemove)="onItemRemoved($event)"
+									(onRemove)="onItemRemoved($event,f)"
 									(onAdd)="onItemAdded($event)"
 									[editable]='true' (onTagEdited)="onTagEdited($event)">
 									{{editNotes.title}}

@@ -10,8 +10,7 @@ import * as _ from 'lodash';
 import { SlicePipe } from '@angular/common';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
-
-
+import { Observable } from 'rxjs';
 
 
 
@@ -85,11 +84,15 @@ export class HomeComponent implements OnInit {
   
   openAddForm(){
     this.getData=false;
+    this.tag=false;
     this.key=null;
     this.showAddInput=true;
-    if(this.myForm){
+    this.timer=setTimeout(()=>{
+      if(this.myForm){
       this.myForm.reset()
     }
+  },300); 
+    console.log(this.userNotes);
   }
   
   saveNote(f:NgForm){
@@ -99,7 +102,7 @@ export class HomeComponent implements OnInit {
     },500);
   }
 
-  onAddNote(f:NgForm){ 
+  onAddNote(f:NgForm){ debugger
     this.showModel=false;
     let $this = this;
     this.notes.Title=f.value.title;
@@ -126,10 +129,12 @@ export class HomeComponent implements OnInit {
         this.noteService.onUpdateNote(this.authUser.uid,this.notes,this.key)
       }
     }
+    this.getNotes();
   } 
   
-  trashData(){
+  trashData(){debugger
     this.tag=false;
+    this.getData=false;
     this.showAddInput=false;
     this.trashdata=true;
     this.trashedNotes=[]
@@ -180,8 +185,10 @@ export class HomeComponent implements OnInit {
   onItemAdded($event){
     console.log($event);
   }
-  onItemRemoved($event){
+ 
+  onItemRemoved($event,f:NgForm){
     console.log($event);
+    this.onAddNote(f)
   }
   onRemoveFromTrash(data,i){
     if(confirm('Are you sure you want to permanently delete this trashed note?')){
@@ -196,7 +203,6 @@ export class HomeComponent implements OnInit {
       this.noteService.deleteFromTrash(this.authUser.uid,note)
       this.trashedNotes=[]
     }
-
   }
 
   onEmptyTrash(){
