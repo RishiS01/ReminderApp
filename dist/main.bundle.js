@@ -89,18 +89,16 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_home_home_component__ = __webpack_require__("../../../../../src/app/components/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_edit_edit_component__ = __webpack_require__("../../../../../src/app/components/edit/edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_trash_trash_component__ = __webpack_require__("../../../../../src/app/components/trash/trash.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_note_service__ = __webpack_require__("../../../../../src/app/services/note.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angularfire2__ = __webpack_require__("../../../../angularfire2/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_side_bar_side_bar_component__ = __webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ngx_chips__ = __webpack_require__("../../../../ngx-chips/dist/ngx-chips.bundle.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ngx_chips___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_ngx_chips__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_note_service__ = __webpack_require__("../../../../../src/app/services/note.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angularfire2__ = __webpack_require__("../../../../angularfire2/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ngx_chips__ = __webpack_require__("../../../../ngx-chips/dist/ngx-chips.bundle.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ngx_chips___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_ngx_chips__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -117,6 +115,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// import { TrashComponent } from './components/trash/trash.component';
 
 
 
@@ -124,7 +123,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
+// import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 
 var firebaseCongfig = {
@@ -136,10 +135,9 @@ var firebaseCongfig = {
     messagingSenderId: "921337961427"
 };
 var appRoutes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_6__components_home_home_component__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_13__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_6__components_home_home_component__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_12__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */] },
-    { path: 'edit-note/:id', component: __WEBPACK_IMPORTED_MODULE_8__components_edit_edit_component__["a" /* EditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_13__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'trash', component: __WEBPACK_IMPORTED_MODULE_9__components_trash_trash_component__["a" /* TrashComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_13__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'edit-note/:id', component: __WEBPACK_IMPORTED_MODULE_8__components_edit_edit_component__["a" /* EditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_12__guards_auth_guard__["a" /* AuthGuard */]] },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -151,26 +149,26 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_6__components_home_home_component__["a" /* HomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__components_edit_edit_component__["a" /* EditComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__components_trash_trash_component__["a" /* TrashComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__components_navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__components_side_bar_side_bar_component__["a" /* SideBarComponent */]
+                // TrashComponent,
+                __WEBPACK_IMPORTED_MODULE_9__components_navbar_navbar_component__["a" /* NavbarComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_14_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseCongfig),
+                __WEBPACK_IMPORTED_MODULE_13_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseCongfig),
                 __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(appRoutes),
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"],
                 __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__["FlashMessagesModule"],
-                __WEBPACK_IMPORTED_MODULE_18_ngx_chips__["TagInputModule"],
-                __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */]
+                __WEBPACK_IMPORTED_MODULE_16_ngx_chips__["TagInputModule"],
+                __WEBPACK_IMPORTED_MODULE_17__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_11__services_auth_service__["a" /* AuthService */],
-                __WEBPACK_IMPORTED_MODULE_12__services_note_service__["a" /* NoteService */],
-                __WEBPACK_IMPORTED_MODULE_14_angularfire2__["a" /* AngularFireModule */],
-                __WEBPACK_IMPORTED_MODULE_16_angularfire2_auth__["a" /* AngularFireAuth */],
-                __WEBPACK_IMPORTED_MODULE_15_angularfire2_database__["a" /* AngularFireDatabase */],
-                __WEBPACK_IMPORTED_MODULE_13__guards_auth_guard__["a" /* AuthGuard */],
+                __WEBPACK_IMPORTED_MODULE_10__services_auth_service__["a" /* AuthService */],
+                __WEBPACK_IMPORTED_MODULE_11__services_note_service__["a" /* NoteService */],
+                __WEBPACK_IMPORTED_MODULE_13_angularfire2__["a" /* AngularFireModule */],
+                __WEBPACK_IMPORTED_MODULE_15_angularfire2_auth__["a" /* AngularFireAuth */],
+                __WEBPACK_IMPORTED_MODULE_14_angularfire2_database__["a" /* AngularFireDatabase */],
+                __WEBPACK_IMPORTED_MODULE_12__guards_auth_guard__["a" /* AuthGuard */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
@@ -190,7 +188,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h4{\n\ttext-align: center;\n\tcolor: red;\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -203,7 +201,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/edit/edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  edit works!\n</p>\n"
+module.exports = ""
 
 /***/ }),
 
@@ -252,7 +250,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".side li{\n    margin-bottom: 5px;\n}\n.divider{\n border: 0px solid #f0f0f0;  \n margin-top: 3px;\n margin-bottom: 3px; \n}\n.getNotes{\n    margin-left: 12px;    \n}\n.trashRouter{\n    \n    margin-right: 6px;\n}\n.del{\n    position: relative;\n    left: 110%;\n    margin-top: 15px;\n}\n\n.title{\n    margin-left: 12px;\n    margin-top: 5px;\n}\n.dropdown{\n    /*position: absolute;*/\n    top: 6%;\n}\n.sidebar{\n\t/*position: absolute;*/\n    z-index: 1;\n    left: 0;\n    top: 0;\n    bottom: 0;\n    width: 363px;\n    border-right: 1px solid #f0f0f0;\n\n}\ntextarea{\n    padding: 10px 100px 10px 20px;\n    left: 0px;\n    position: absolute;\n    width:126%;\n    border: 0px solid #f0f0f0;\n    max-height: 100%;\n    min-height: 799px;\n    height: 100%;\n    box-sizing: border-box;\n    margin-left: -31px;\n\n}\n.tag-input{\n    /*position: absolute;\n    top: -21px;\n    left: 346px;*/\n    padding-left: 0px;\n    margin-left: -15px;\n    border: 0px solid #f0f0f0;\n}\n.remove{\n    color:red;\n    /*margin-right: 10px;*/\n    padding-top: 2px;   \n    padding-right: 7px;\n    position: relative;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\nli{\n    list-style: none;\n   \n}\nh4{\n    color: red;\n    margin-top: 100px;\n    text-align: center;\n}\nh3{\n    margin-top: 0px;\n}\n.tag{\n  position: absolute;\n    right: 0px;\n    left: 0px;\n    bottom: 1px;\n    top: -10px;\n    height: 15px;\n    padding-left: 65px;\n    border-bottom: 0px solid #f0f0f0;\n}\n.note{\n    /*position: absolute;\n    right: 0px;\n    left: 332px;\n    bottom: 0px;\n    top: 15px;\n    padding-top: 4px;\n    padding-bottom: 0px;\n    line-height: 1.4em;*/\n    \n}\nul .tagUl{\n    list-style-type: none;\n    padding: 3px 0 3px 15px;\n    margin: 3px 0px 0px;\n    overflow: auto;\n    color: #448ac9;\n    line-height: 16px;\n}\nli .tagLi{\n    margin-left: 0;\n    position: relative;\n    top: -2px;\n}\nul.tagUl li{\n    float: left;\n    margin: 1px 4px 1px 0;\n}\n.add{\n   float: right;\n   margin-top: -36px;\n   \n}\n.noteList{\n    /*position: absolute;\n    left: 0px;\n    bottom: 0px;\n    right: 0;\n    top: 75px;*/\n    overflow: auto;\n    height: auto;\n    padding-top: 0px;\n    height: 800px;\n    margin-top: 10px;\n}\n.noteList li{\n    position: relative;\n    padding: 12px 10px 12px 8px\n}\n.p{\n    font-size: 16px;\n    color: #333;\n    /*padding: 0 0 0 18px;*/\n    width: 270px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.preview:hover .trash {\n    display: block;\n    color: red;\n}\n.trash{\n    padding-top: 16px;   \n    padding-right: 17px;\n    position: absolute;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\n.title:hover .remove{\n    display: block;\n    color: red;\n}\n.preview:hover .onTrash {\n    display: block;\n    color: red;\n}\n.onTrash{\n    padding-top: 16px;   \n    padding-right: 17px;\n    position: absolute;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\n.text{\n    font-size: 16px;\n    color: #333;\n    /*width: 270px;*/\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.containt{\n    \n}\n@media only screen and (max-width: 768px){\n    .sidebar{\n        height: auto;\n    }\n    .noteList{\n        height: auto;\n        padding: 0px;\n    }\n    textarea{\n    /*padding: 10px 100px 10px 20px;*/\n    left: 0px;\n    position: absolute;\n    width:126%;\n    border: 0px solid #f0f0f0;\n    max-height: 100%;\n    min-height: 799px;\n    height: 100%;\n    box-sizing: border-box;\n    margin-left: -31px;\n\n}\n\n}", ""]);
+exports.push([module.i, ".side li{\n    margin-bottom: 5px;\n}\n.divider{\n border: 0px solid #f0f0f0;  \n margin-top: 3px;\n margin-bottom: 3px; \n}\n.getNotes{\n    margin-left: 12px;    \n    cursor:pointer;\n}\n.trashRouter{\n    \n    margin-right: 6px;\n}\n.del{\n    position: relative;\n    left: 110%;\n    margin-top: 15px;\n}\n\n.title{\n    margin-left: 12px;\n    margin-top: 5px;\n    cursor:pointer;\n}\n.dropdown{\n    top: 6%;  \n}\n.dropdown-toggle{\n    cursor:pointer;\n}\n.sidebar{\n    left: 0;\n    top: 0;\n    bottom: 0;\n    width: 363px;\n    border-right: 1px solid #f0f0f0;\n\n}\ntextarea{\n    padding: 10px 100px 10px 20px;\n    left: 0px;\n    position: absolute;\n    width:126%;\n    border: 0px solid #f0f0f0;\n    max-height: 100%;\n    min-height: 799px;\n    height: 100%;\n    box-sizing: border-box;\n    margin-left: -31px;\n    resize: none;\n    border-left: 1px solid #f0f0f0;\n    /*border-top: 1px solid #f0f0f0;*/\n}\n.tag-input{\n    padding-left: 0px;\n    margin-left: -15px;\n    border-bottom: 1px solid #f0f0f0;\n\n}\n.remove{\n    color:red;\n    padding-top: 2px;   \n    padding-right: 7px;\n    position: relative;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\n.dropdownMenu{\n    display: block;\n  }\nli{\n    list-style: none;\n   \n}\nh4{\n    color: red;\n    margin-top: 100px;\n    text-align: center;\n}\nh3{\n    margin-top: 0px;\n}\n.tag{\n  position: absolute;\n    right: 0px;\n    left: 0px;\n    bottom: 1px;\n    top: -10px;\n    height: 15px;\n    padding-left: 65px;\n    border-bottom: 1px solid #f0f0f0;\n}\n.note{\n    /*position: absolute;\n    right: 0px;\n    left: 332px;\n    bottom: 0px;\n    top: 15px;\n    padding-top: 4px;\n    padding-bottom: 0px;\n    line-height: 1.4em;*/\n    \n}\nul .tagUl{\n    list-style-type: none;\n    padding: 3px 0 3px 15px;\n    margin: 3px 0px 0px;\n    overflow: auto;\n    color: #448ac9;\n    line-height: 16px;\n}\nli .tagLi{\n    margin-left: 0;\n    position: relative;\n    top: -2px;\n}\nul.tagUl li{\n    float: left;\n    margin: 1px 4px 1px 0;\n}\n.add{\n   float: right;\n   margin-top: -36px;\n   \n}\n.noteList{\n    /*position: absolute;\n    left: 0px;\n    bottom: 0px;\n    right: 0;\n    top: 75px;*/\n    overflow: auto;\n    height: auto;\n    padding-top: 0px;\n    height: 800px;\n    margin-top: 10px;\n}\n.noteList li{\n    position: relative;\n    padding: 12px 10px 12px 8px\n}\n.p{\n    font-size: 16px;\n    color: #333;\n    /*padding: 0 0 0 18px;*/\n    width: 270px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    cursor:pointer;\n}\n.preview:hover .trash {\n    display: block;\n    color: red;\n}\n.trash{\n    /*padding-top: 16px;   \n    padding-right: 12px;*/\n    position: absolute;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n    padding: 16px 0px 2px 0px;\n}\n.title:hover .remove{\n    display: block;\n    color: red;\n}\n.preview:hover .onTrash {\n    display: block;\n    color: red;\n}\n.onTrash{\n    padding-top: 16px;   \n    padding-right: 12px;\n    position: absolute;\n    right: 0;\n    top: 0;\n    display: none;\n    color: red;\n}\n.text{\n    font-size: 16px;\n    color: #333;\n    /*width: 270px;*/\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.trashButton{\n    background-color: white;\n    border: 1px solid red;\n    color: red;\n    padding: 2px 6px;\n    margin-right: 7px;\n}\n.length{\n    margin-right: 28px;\n}\n.undo{\n    margin-top: -29px;\n    padding-right: 27px;\n    color: #006699;\n\n}\n.toggle-btn{\n    display: none;\n}\n@media only screen and (max-width:768px)  {\n    .sidebar{\n        height: auto;\n    }\n    .noteList{\n        height: auto;\n        padding: 0px;   \n    }\n    textarea{\n        padding: 10px 20px 10px 20px;\n        left: 0px;\n        position: absolute;\n        width:126%;\n        border-left: 0px solid #f0f0f0;\n        max-height: 100%;\n        min-height: 799px;\n        height: 100%;\n        box-sizing: border-box;\n        margin-left: -31px;\n        /*border-top: 1px solid #f0f0f0;*/\n\n    }\n    .add{\n        position: fixed;\n        left:10%;\n        top:6%;\n    }\n    .toggle-btn {\n        display: block;\n        cursor: pointer;\n        position: absolute;\n        left: 10px;\n        top: -38px;\n        z-index: 10 !important;\n        padding: 3px;\n        background-color: #ffffff;\n        color: #000;\n        width: 40px;\n        text-align: center;\n    }\n  .dropdownMenu{\n    display: none;\n  }\n  .notePad{\n    width: 351px;\n    max-height: 533px;\n    }\n}\n@media only screen and (max-width: 1024px){\n    .sidebar{\n        height: auto;\n    }\n    .noteList{\n        height: auto;\n        padding: 0px;   \n    }\n    textarea{\n        padding: 10px 20px 10px 20px;\n        left: 0px;\n        position: absolute;\n        width:126%;\n        border-left: 0px solid #f0f0f0;\n        max-height: 100%;\n        min-height: 799px;\n        height: 100%;\n        box-sizing: border-box;\n        margin-left: -31px;\n        /*border-top: 1px solid #f0f0f0;*/\n\n    }\n}\n/*.ng2-tag-input  {\n    border-bottom: 0px solid white;\n}\n*/\n\n\n@media only screen and (max-width: 576px){\n  .add{\n        position: fixed;\n        left:15%;\n        top:8%;\n    }\n}", ""]);
 
 // exports
 
@@ -265,7 +263,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid cf\">\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-2 col-md-2 sidebar\">\n\t\t\t<small>\n\t\t\t\t<a  (click) = \"openAddForm()\"><span class=\"glyphicon glyphicon-plus add\"></span></a>\n\t\t\t</small>\n\t\t\t<div >\n\t\t\t\t<div class=\"dropdown\">\n\t\t\t\t\t<span class=\"dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">\n\t\t\t\t\t\tTags\n\t\t\t\t\t\t<span class=\"caret\"></span>\n\t\t\t\t\t</span>\n\t\t\t\t\t<ul class=\"dropdown-menu side\">\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<span class=\"getNotes\"><span type='button'  class =\"trashRouter\" (click)=\"trashData()\">Trash</span></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"divider\"></li>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<span class=\"getNotes\"><span (click)=\"getNotes()\" >All Notes</span></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"divider\"></li>\n\t\t\t\t\t\t<li *ngFor=\"let note of n ; let i = index \"  class=\"title\" (click)=\"getTagData(note)\" >{{note.Title.display}}\n\t\t\t\t\t\t\t<span ><a type='button'  class =\"glyphicon glyphicon-trash pull-right remove\" (click)=\"onAddNoteToTrash(note,i)\"></a></span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\t<ul class=\"noteList\">\n\t\t\t\t\t<div *ngIf=\"!tag && !trashdata\">\n\n\t\t\t\t\t\t<li *ngFor = \"let data of notesValue; let i = index \"  class=\"preview\">\n\t\t\t\t\t\t\t<p  name=\"Note\" [(ngModel)]=\"data.Note\" ngDefaultControl (click)=\"getNoteData(data,i)\" class=\"p\" id=\"noteData\">\n\t\t\t\t\t\t\t\t{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<a type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onAddNoteToTrash(data,i)\"></a>\n\t\t\t\t\t\t\t<li class=\"text\">{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div *ngIf=\"tag \">\n\t\t\t\t\t\t<li *ngFor=\"let data of tagdata ; let i = index \"  class=\"preview\" >\n\t\t\t\t\t\t\t<p name=\"Note\" [(ngModel)]=\"data.Note\" ngDefaultControl (click)=\"getNoteData(data,i)\" class=\"p\" >\n\t\t\t\t\t\t\t\t\t{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t<span ><a type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onRemoveNote(data,i)\"></a></span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<li class=\"text\" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div *ngIf =\"trashdata\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<li *ngFor=\"let tnote of trashedNotes; let i = index \"  class=\"preview\">\n\t\t\t\t\t\t\t<p name=\"Note\" [(ngModel)]=\"tnote.Note\" ngDefaultControl class=\"p\">{{tnote.Note | slice:0:25}}{{tnote.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t\t<span><a class=\"glyphicon glyphicon-trash pull-right onTrash\" (click)=\"onRemoveNoteFromTrash(tnote,i)\"></a></span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"container-fluid \">\n\t\t\t<div class=\"col-xs-8 col-md-8 \">\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t<form #f='ngForm' (keyup)='saveNote(f)' *ngIf=\"showAddInput || getData\">\n\t\t\t\t\t<div class=\"tag-input col-xs-12\">\n\t\t\t\t\t\t<!-- <div class=\"col-xs-12\"> -->\n\t\t\t\t\t\t<tag-input *ngIf=\"!getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='title'\n\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t\t<tag-input *ngIf=\"getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='noteValue.Title'\n\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t<!-- </div> -->\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"note col-xs-12\" >\n\t\t\t\t\t\t<div class=\"col-xs-12\" >\n\t\t\t\t\t\t\t<textarea *ngIf=\"!getData\" rows=\"100%\" cols=\"100%\" name=\"note\" placeholder=\"note..\" [(ngModel)]=\"note\" ></textarea >\n\t\t\t\t\t\t\t<textarea *ngIf=\"getData\" rows=\"100%\" cols=\"100%\" name=\"Note\"  [(ngModel)]=\"noteValue.Note\" >{{noteValue.Note}}</textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<!-- <form #u='ngForm' (keyup)='updateNote(noteValue)'  *ngIf='getData'>\n\t\t\t\t\t<div class=\"tag-input\">\n\t\t\t\t\t\t<tag-input *ngIf=\"getData\" name=\"title\" [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='noteValue.Title'\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">{{noteValue.Title}}\n\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"note\" >\n\t\t\t\t\t\t<textarea *ngIf=\"getData\" rows=\"100%\" cols=\"100%\" name=\"Note\"  [(ngModel)]=\"noteValue.Note\" >{{noteValue.Note}}</textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</form> -->\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+module.exports = "<div class=\"container-fluid cf\">\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-2 col-md-2 sidebar\">\n\t\t\t<small>\n\t\t\t\t<a  (click) = \"openAddForm()\" *ngIf=\"!trashdata\"><span class=\"glyphicon glyphicon-plus add\"></span></a>\n\t\t\t</small>\n\t\t\t<div >\n\t\t\t\t<i class=\"fa fa-bars fa-2x toggle-btn\" data-toggle=\"collapse\" data-target=\".dropdownMenu\"></i>\n      \t\t\t<div class=\"dropdownMenu\">\n      \t\t\t\t<div class=\"dropdown\" >\n\t\t\t\t\t\t<span class=\"dropdown-toggle \" type=\"button\" data-toggle=\"dropdown\">\n\t\t\t\t\t\t\tTags\n\t\t\t\t\t\t\t<span class=\"caret\"></span>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<ul class=\"dropdown-menu side\">\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<span class=\"getNotes\"><span type='button'  class =\"trashRouter\" (click)=\"trashData()\">Trash</span>\n\t\t\t\t\t\t\t\t\t<span ><a href=\"\" type=\"button\" class=\"btn  trashButton pull-right\" (click)=\"onEmptyTrash()\">Empty</a></span>\n\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"divider\"></li>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<span class=\"getNotes\"><span (click)=\"getNotes()\" >All Notes </span> <span class=\" length pull-right\">{{userNotes?.length}}</span></span>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"divider\"></li>\n\t\t\t\t\t\t\t<li *ngFor=\"let tag of notesWithTags ; let i = index \"  class=\"title\" (click)=\"getTagData(tag)\" >{{tag.display}}\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<ul class=\"noteList\">\n\t\t\t\t\t\t<div *ngIf=\"!tag && !trashdata\">\n\t\t\t\t\t\t\t<li *ngFor = \"let data of userNotes; let i = index \"  class=\"preview\">\n\t\t\t\t\t\t\t\t<p  name=\"Note\" [(ngModel)]=\"data.Note\" ngDefaultControl (click)=\"getNoteData(data,i)\" class=\"p\" id=\"noteData\">\n\t\t\t\t\t\t\t\t\t{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t<a type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onAddNoteToTrash(data,i)\"></a>\n\t\t\t\t\t\t\t<!-- <li *ngIf=\"!showModel\"  class=\"text\" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}} -->\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div *ngIf=\"tag \">\n\t\t\t\t\t\t\t<li *ngFor=\"let data of tagData ; let i = index \"  class=\"preview\" >\n\t\t\t\t\t\t\t\t<p name=\"Note\" [(ngModel)]=\"data.Note\" ngDefaultControl (click)=\"getNoteData(data,i)\" class=\"p\" >\n\t\t\t\t\t\t\t\t\t{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t<span ><a type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onAddNoteToTrash(data,i)\" ></a></span>\n\t\t\t\t\t\t\t<!-- <li class=\"text\" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}} -->\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div *ngIf =\"trashdata\">\n\t\t\t\t\t\t\t<li *ngFor=\"let trash of trashedNotes; let i = index \" class=\"preview\">\n\t\t\t\t\t\t\t\t<p name=\"trash\" [(ngModel)]=\"trash.Notes\" (click)=\"getNoteData(data,i)\" ngDefaultControl class=\"p\" >\n\t\t\t\t\t\t\t\t\t{{trash.Note | slice:0:25}}{{trash.Note?.length < 25 ? '' : '...'}}\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t<span type='button'  class =\"glyphicon glyphicon-trash pull-right trash\" (click)=\"onRemoveFromTrash(trash,i)\"></span>\n\t\t\t\t\t\t\t\t<span><a type='button'  class = \"fa fa-undo pull-right undo\" (click)=\"onUndoNoteFromTrash(trash,i)\"></a></span>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"container-fluid \">\n\t\t\t<div class=\"col-xs-8 col-md-8 notePad\">\n\t\t\t\t<form #f='ngForm' (keyup)='saveNote(f)'  *ngIf=\"showAddInput || getData\" >\n\t\t\t\t\t<div class=\"tag-input col-xs-12\">\n\t\t\t\t\t\t<div class=\"col-xs-12\">\n\t\t\t\t\t\t\t<tag-input *ngIf=\"!getData\" name=\"title\"  [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='title'\n\t\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">\n\t\t\t\t\t\t\t\t<tag-input-dropdown [autocompleteItems]=\"notesWithTags\"\n\t\t\t\t\t\t\t\t\t[autocompleteItems]=\"true\">\n\t\t\t\t\t\t\t\t</tag-input-dropdown>\n\t\t\t\t\t\t\t</tag-input>\n\t\t\t\t\t\t\t<tag-input *ngIf=\"getData\" name=\"title\"  [separatorKeyCodes]=\"[32]\" [maxItems]='3' [(ngModel)]='editNotes.Title'\n\t\t\t\t\t\t\t\t\t(onRemove)=\"onItemRemoved($event)\"\n\t\t\t\t\t\t\t\t\t(onAdd)=\"onItemAdded($event)\"\n\t\t\t\t\t\t\t\t\t[editable]='true' (onTagEdited)=\"onTagEdited($event)\">\n\t\t\t\t\t\t\t\t\t{{editNotes.title}}\n\t\t\t\t\t\t\t\t<tag-input-dropdown [autocompleteItems]=\"notesWithTags\"\n\t\t\t\t\t\t\t\t\t[autocompleteItems]=\"true\">\n\t\t\t\t\t\t\t\t</tag-input-dropdown>\n\t\t\t\t\t\t\t</tag-input>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"note col-xs-12\" >\n\t\t\t\t\t\t<div class=\"col-xs-12\" >\n\t\t\t\t\t\t\t<textarea *ngIf=\"!getData\" rows=\"100%\" cols=\"100%\" name=\"note\" placeholder=\"note..\" [(ngModel)]=\"note\" ></textarea >\n\t\t\t\t\t\t\t<textarea *ngIf=\"getData\" rows=\"100%\" cols=\"100%\" name=\"note\"  [(ngModel)]=\"editNotes.Note\" >{{editNotes.note}}</textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
 
 /***/ }),
 
@@ -282,6 +280,8 @@ module.exports = "<div class=\"container-fluid cf\">\n\t<div class=\"row\">\n\t\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -305,6 +305,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var HomeComponent = (function () {
     function HomeComponent(noteService, authService, router, flashMessagesService) {
         var _this = this;
@@ -313,17 +315,17 @@ var HomeComponent = (function () {
         this.router = router;
         this.flashMessagesService = flashMessagesService;
         this.notes = {};
-        this.n = [];
         this.trashedNotes = [];
         this.noteData = [];
         this.notesValue = [];
         this.dataValue = [];
-        this.tagdata = [];
+        this.tagData = [];
         this.tag = false;
         this.getData = false;
         this.showAddInput = false;
         this.trashdata = false;
         this.noteUpdate = false;
+        this.notesWithTags = [];
         this.authService.getAuth().subscribe(function (auth) {
             _this.authUser = auth;
         });
@@ -333,44 +335,31 @@ var HomeComponent = (function () {
     };
     HomeComponent.prototype.getNotes = function () {
         var _this = this;
+        this.notesWithTags = [];
         this.tag = false;
         this.trashdata = false;
-        this.noteService.getNotes(this.authUser.uid).valueChanges().subscribe(function (data) {
-            // console.log(data)
-            _this.n = [];
-            _this.dataValue = [];
-            _this.notesValue = [];
-            _this.tagdata = [];
-            _this.trashedNotes = [];
-            Object.keys(data).forEach(function (val) {
-                var $key = val;
-                var note = data[val].Note;
-                var title = data[val].Title;
-                var Id = data[val].id;
-                _this.notesValue.push({ key: $key, Note: note, Title: title, id: Id });
+        this.noteService.getNotes(this.authUser.uid).subscribe(function (data) {
+            _this.userNotes = data;
+            console.log(_this.userNotes);
+            _this.userNotes.forEach(function (val) {
+                if (val.Title !== undefined) {
+                    val.Title.map(function (tag) {
+                        // this.notesWithTags = _.uniqBy(this.notesWithTags,'display')
+                        _this.notesWithTags.push(tag);
+                        _this.notesWithTags = __WEBPACK_IMPORTED_MODULE_5_lodash__["uniqBy"](_this.notesWithTags, 'display');
+                    });
+                    console.log(_this.notesWithTags);
+                }
             });
-            console.log(_this.notesValue);
-            if (typeof data === typeof null) {
-                Object.keys(data).forEach(function (key) {
-                    var $key = key;
-                    var note = data[key].Note;
-                    var title = data[key].Title;
-                    var Id = data[key].id;
-                    if (typeof data[key].Title !== typeof undefined) {
-                        _this.noteData.push({ key: $key, Note: note, Title: title, id: Id });
-                        // console.log(this.noteData)
-                        data[key].Title.forEach(function (t) {
-                            _this.n.push({ key: $key, Title: t, Note: note });
-                        });
-                        // this.n = _.uniqBy(this.n,'display');
-                        // console.log(this.n)
-                    }
-                    _this.dataValue.push({ key: $key, Note: note, Title: title, id: Id });
-                });
-                // console.log(this.dataValue)
-            }
         });
-        this.notesValue = [];
+    };
+    HomeComponent.prototype.openAddForm = function () {
+        this.getData = false;
+        this.key = null;
+        this.showAddInput = true;
+        if (this.myForm) {
+            this.myForm.reset();
+        }
     };
     HomeComponent.prototype.saveNote = function (f) {
         var _this = this;
@@ -381,41 +370,80 @@ var HomeComponent = (function () {
     };
     HomeComponent.prototype.onAddNote = function (f) {
         var _this = this;
-        debugger;
+        this.showModel = false;
         var $this = this;
-        // let key = this.noteValue.key;
-        if (typeof this.noteValue !== typeof undefined) {
-            this.getData = true;
-            var n = this.noteValue;
-            if (typeof this.noteValue.Title === typeof undefined) {
-                delete this.noteValue.Title;
+        this.notes.Title = f.value.title;
+        this.notes.Note = f.value.note;
+        this.myForm = f;
+        console.log(this.key);
+        if (this.key === null) {
+            if (typeof this.notes.Title === typeof undefined) {
+                delete this.notes.Title;
             }
-            if (this.noteValue.Note && this.noteValue.Note !== "") {
-                this.noteService.onUpdateNote(this.authUser.uid, n, this.noteValue.key);
+            if (this.notes.Note && this.notes.Note !== "") {
+                this.notes.id = new Date().valueOf();
+                this.noteService.addNote(this.authUser.uid, this.notes).then(function (ref) {
+                    _this.key = ref.key;
+                });
             }
         }
         else {
-            var notes = {};
-            notes.Title = f.value.title;
-            notes.Note = f.value.note;
-            this.myForm = f;
-            if (typeof notes.Title === typeof undefined) {
-                delete notes.Title;
+            this.showModel = true;
+            if (typeof this.notes.Title === typeof undefined) {
+                delete this.notes.Title;
             }
-            if (notes.Note && notes.Note !== "") {
-                if (!this.noteUpdate) {
-                    debugger;
-                    this.noteService.addNote(this.authUser.uid, notes)
-                        .then(function (ref) {
-                        _this.key = ref.key;
-                        _this.noteUpdate = true;
-                    });
-                }
-                else {
-                    this.update(notes, this.key);
-                }
+            if (typeof this.notes.Note && this.notes.Note !== "") {
+                this.noteService.onUpdateNote(this.authUser.uid, this.notes, this.key);
             }
         }
+    };
+    HomeComponent.prototype.trashData = function () {
+        var _this = this;
+        this.tag = false;
+        this.showAddInput = false;
+        this.trashdata = true;
+        this.trashedNotes = [];
+        this.noteService.getTrashedNotes(this.authUser.uid).subscribe(function (trashData) {
+            _this.trashedNotes = trashData;
+            console.log(_this.trashedNotes);
+        });
+    };
+    HomeComponent.prototype.getNoteData = function (data, i) {
+        this.getData = true;
+        this.key = data.key;
+        console.log(data);
+        this.editNotes = [];
+        console.log(this.userNotes);
+        // data=Object.assign([],data)
+        this.editNotes = data;
+    };
+    HomeComponent.prototype.onAddNoteToTrash = function (data, i) {
+        if (confirm('Are you sure')) {
+            var trash = this.noteService.onAddToTrash(this.authUser.uid, data);
+            if (typeof data.Title === typeof undefined) {
+                delete data.Title;
+                // delete data.id
+            }
+            trash.set(__assign({}, data));
+            this.noteService.removeNoteFromList(this.authUser.uid, data);
+        }
+        this.getNotes();
+    };
+    HomeComponent.prototype.getTagData = function (data) {
+        var _this = this;
+        this.trashdata = false;
+        this.tag = true;
+        this.tagData = [];
+        this.userNotes;
+        this.userNotes.map(function (value) {
+            if (value.Title !== undefined) {
+                value.Title.map(function (val) {
+                    if (val.display === data.display) {
+                        _this.tagData.push(value);
+                    }
+                });
+            }
+        });
     };
     HomeComponent.prototype.onItemAdded = function ($event) {
         console.log($event);
@@ -423,108 +451,23 @@ var HomeComponent = (function () {
     HomeComponent.prototype.onItemRemoved = function ($event) {
         console.log($event);
     };
-    HomeComponent.prototype.onAddNoteToTrash = function (note, i) {
-        if (confirm('Are you sure ?')) {
-            this.noteData.splice(i, 1);
-            this.noteService.onAddToTrash(this.authUser.uid, note);
+    HomeComponent.prototype.onRemoveFromTrash = function (data, i) {
+        if (confirm('Are you sure you want to permanently delete this trashed note?')) {
+            this.noteService.deleteFromTrash(this.authUser.uid, data);
         }
-        this.getNotes();
     };
-    HomeComponent.prototype.getTagData = function (tag) {
-        var _this = this;
-        this.trashdata = false;
-        this.tagdata = [];
-        tag = Object.assign([], tag);
-        this.noteData.map(function (obj) {
-            obj = Object.assign([], obj);
-            obj.Title.map(function (tt) {
-                console.log(tt);
-                if (tag.Title.display === tt.display) {
-                    _this.tag = true;
-                    console.log();
-                    if (__WEBPACK_IMPORTED_MODULE_5_lodash__["findIndex"](_this.tagdata, ['key', obj.key]) === -1) {
-                        _this.tagdata.push(__assign({}, obj));
-                    }
-                    console.log(_this.tagdata);
-                }
-            });
-        });
-    };
-    HomeComponent.prototype.onRemoveNote = function (note, i) {
+    HomeComponent.prototype.onUndoNoteFromTrash = function (note, i) {
         console.log(note);
-        if (confirm('Are you sure?')) {
-            this.noteService.onDelete(this.authUser.uid, note);
-        }
-    };
-    HomeComponent.prototype.getNoteData = function (nt, i) {
-        var _this = this;
-        this.key = nt.key;
-        this.noteUpdate = true;
-        this.dataValue.map(function (a) {
-            if (nt.id === a.id) {
-                _this.getData = true;
-                _this.noteValue = nt;
-            }
-        });
-    };
-    HomeComponent.prototype.updateNote = function (n, k) {
-        var _this = this;
-        clearTimeout(this.timer);
-        this.timer = setTimeout(function () {
-            _this.update(n, k);
-        }, 500);
-    };
-    HomeComponent.prototype.update = function (n, k) {
-        console.log(n);
-        var key;
-        if (k) {
-            key = k;
-            delete n.key;
-        }
-        else {
-            key = n.key;
-            delete n.key;
-        }
-        if (typeof n.Title === typeof undefined) {
-            delete n.Title;
-        }
-        if (n.Note !== "") {
-            this.noteService.onUpdateNote(this.authUser.uid, n, key);
-        }
-    };
-    HomeComponent.prototype.openAddForm = function () {
-        this.key = null;
-        this.getData = false;
-        this.showAddInput = true;
-        this.noteUpdate = false;
-        if (this.myForm) {
-            this.myForm.reset();
-        }
-    };
-    HomeComponent.prototype.onRemoveNoteFromTrash = function (note, i) {
-        if (confirm('Note will be deleted permanently, Sure to continue?')) {
-            this.trashedNotes.splice(i, 1);
+        if (confirm('Sure to restore trashed note?')) {
+            this.noteService.onUndoNote(this.authUser.uid, note);
             this.noteService.deleteFromTrash(this.authUser.uid, note);
+            this.trashedNotes = [];
         }
     };
-    HomeComponent.prototype.trashData = function () {
-        var _this = this;
-        this.trashdata = false;
-        this.tag = false;
-        this.noteService.getTrashedNotes(this.authUser.uid).valueChanges().subscribe(function (data) {
-            console.log(data);
-            _this.trashedNotes = [];
-            // this.trashData()
-            if (typeof data === typeof null) {
-                _this.trashdata = true;
-                Object.keys(data).forEach(function (key) {
-                    var $key = key;
-                    var note = data[key].Note;
-                    _this.trashedNotes.push({ key: $key, Note: note });
-                });
-                console.log(_this.trashedNotes);
-            }
-        });
+    HomeComponent.prototype.onEmptyTrash = function () {
+        if (confirm('Are you sure you want to permanently delete your trashed notes?')) {
+            this.noteService.onDeleteTrash(this.authUser.uid);
+        }
     };
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -651,7 +594,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".trash{\n\tpadding: 3px 20px;\n}\n.nav{\n\tmargin-bottom: 0px;\n}\n", ""]);
+exports.push([module.i, ".trash{\n\tpadding: 3px 20px;\n}\n.nav{\n\tmargin-bottom: 0px;\n}\n@media only screen and (max-width: 768px){\n\t.dropdown{\n\t\tmargin-right: 15px;\n\t}\n}\n", ""]);
 
 // exports
 
@@ -726,208 +669,6 @@ var NavbarComponent = (function () {
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
     ], NavbarComponent);
     return NavbarComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/side-bar/side-bar.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "h4{\n\ttext-align: center;\n\tcolor: red;\n}\n.title{\n\tlist-style: none;\n\ttext-align: center;\n\tmargin-bottom: 10px;\n}\n\nh3{\n\ttext-align: center;\n}\n.side{\n\t/*background-color: #f1f1f1;\n\t position: absolute;\n    height: 100%;*/\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/side-bar/side-bar.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"side\">\n<div class=\"row\">\n\t<div class=\"noteList\">\n\t\t<span><h3>List of Notes</h3></span>\n\t\t<div *ngIf ='n.length >0;else noNote'>\n\n\t\t\t<ul class=\"side\">\n\t\t\t\t<li *ngFor=\"let note of n; let i of index \"  class=\"title\" ><b>{{note.Title}}</b>\n\t\t\t\t\t<span><a class=\"glyphicon glyphicon-remove remove pull-right\" (click)=\"onDeleteNote(note)\"></a></span>\n\t\t\t\t</li>\n\t\t\t\t\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</div>\n<ng-template #noNote>\n\t<h4>No notes to display</h4>\n</ng-template>\n<!-- [routerLink] =\"['/edit-note/'+note.key]\" -->\n</div>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/side-bar/side-bar.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SideBarComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_note_service__ = __webpack_require__("../../../../../src/app/services/note.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var SideBarComponent = (function () {
-    function SideBarComponent(authService, noteService, router) {
-        var _this = this;
-        this.authService = authService;
-        this.noteService = noteService;
-        this.router = router;
-        this.notes = {};
-        this.n = [];
-        this.authService.getAuth().subscribe(function (auth) {
-            _this.authUser = auth;
-        });
-    }
-    SideBarComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.noteService.getNotes(this.authUser.uid).valueChanges().subscribe(function (data) {
-            console.log(data);
-            _this.refresh();
-            Object.keys(data).forEach(function (key) {
-                var $key = key;
-                var note = data[key].Note;
-                var title = data[key].Title;
-                _this.n.push({ key: $key, Note: note, Title: title });
-                console.log(_this.n);
-            });
-        });
-    };
-    SideBarComponent.prototype.onDeleteNote = function (note) {
-        if (confirm('are you sure?')) {
-            // this.noteService.onRemove(this.authUser.uid,note);
-        }
-    };
-    SideBarComponent.prototype.refresh = function () {
-        this.noteService.getNotes(this.authUser.uid);
-        this.n = [];
-    };
-    SideBarComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-side-bar',
-            template: __webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.css")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_1__services_note_service__["a" /* NoteService */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
-    ], SideBarComponent);
-    return SideBarComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/trash/trash.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".side{\n    position: absolute;\n    left: 0px;\n    bottom: 0px;\n    right: 0;\n    top: 75px;\n    overflow: auto;\n    height: auto;\n    padding-top: 0px;\n}\n.sidebar{\n\tposition: absolute;\n    z-index: 1;\n    left: 0;\n    top: 0;\n    bottom: 0;\n    width: 363px;\n    border-right: 1px solid #f0f0f0;\n\n}\ntextarea{\n    /*width: 100%;*/\n    height:100%;\n}\n.remove{\n    color:red;\n    margin-right: 10px;\n   \n}\nh5{\n    color: red;\n    margin-top: 100px;\n    text-align: center;\n\n}\nli{\n    list-style: none;\n    text-align: center;\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/trash/trash.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "\n<div class=\"container-fluid\">\n\t<div class=\"row\">\n\t\t<div class=\" col-md-3  sidebar\">\n\t\t\t<div *ngIf ='trashedNotes.length >0;else noNote'>\n\t\t\t\t<ul class=\"side\">\n\t\t\t\t\t<li *ngFor=\"let tnote of trashedNotes; let i of index \"  class=\"title\" ><b>{{tnote.Note}}</b>\n\t\t\t\t\t\t<span><a class=\"glyphicon glyphicon-trash remove pull-right\" (click)=\"onRemoveNoteFromTrash(tnote)\"></a></span>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-8\">\n\t\t\t\t\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<ng-template #noNote>\n\t<h5>No notes to show</h5>\n</ng-template>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/trash/trash.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrashComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_note_service__ = __webpack_require__("../../../../../src/app/services/note.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var TrashComponent = (function () {
-    function TrashComponent(authService, noteService, router) {
-        var _this = this;
-        this.authService = authService;
-        this.noteService = noteService;
-        this.router = router;
-        this.n = [];
-        this.trashedNotes = [];
-        this.authService.getAuth().subscribe(function (auth) {
-            _this.authUser = auth;
-        });
-    }
-    TrashComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.noteService.getTrashedNotes(this.authUser.uid).valueChanges().subscribe(function (data) {
-            console.log(data);
-            _this.trashData();
-            if (typeof data !== typeof null) {
-                Object.keys(data).forEach(function (key) {
-                    var $key = key;
-                    var note = data[key].Note;
-                    _this.trashedNotes.push({ key: $key, Note: note });
-                });
-                console.log(_this.trashedNotes);
-            }
-        });
-    };
-    TrashComponent.prototype.onRemoveNoteFromTrash = function (note) {
-        debugger;
-        if (confirm('Note will be deleted permanently, Sure to continue?')) {
-            this.noteService.deleteFromTrash(this.authUser.uid, note);
-        }
-    };
-    TrashComponent.prototype.trashData = function () {
-        this.noteService.getTrashedNotes(this.authUser.uid);
-        this.trashedNotes = [];
-    };
-    TrashComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-trash',
-            template: __webpack_require__("../../../../../src/app/components/trash/trash.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/trash/trash.component.css")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2__services_note_service__["a" /* NoteService */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
-    ], TrashComponent);
-    return TrashComponent;
 }());
 
 
@@ -1076,38 +817,50 @@ var NoteService = (function () {
         this.router = router;
         this.user = this.angularFire.list('/user'),
             this.trash = this.angularFire.list('/trash');
-        // this.notes=this.angularFire.object('/notes')
     }
     NoteService.prototype.addNote = function (id, n) {
         var note = this.angularFire.list("/user/" + id + "/notes/");
-        return note.push(__assign({}, n, { id: new Date().valueOf() }));
+        return note.push(__assign({}, n));
     };
     NoteService.prototype.getNotes = function (id) {
-        return this.angularFire.object("/user/" + id + "/notes/");
+        return this.angularFire.list("/user/" + id + "/notes/")
+            .snapshotChanges().map(function (actions) {
+            return actions.map(function (action) { return (__assign({ key: action.key }, action.payload.val())); });
+        });
     };
     NoteService.prototype.onAddToTrash = function (id, i) {
-        var trash = this.angularFire.object("/user/" + id + "/trash/" + i.key);
-        if (typeof i.Title === typeof undefined) {
-            delete i.Title;
-        }
-        trash.set(__assign({}, i));
-        console.log(i);
+        return this.angularFire.object("/user/" + id + "/trash/" + i.key);
+    };
+    NoteService.prototype.removeNoteFromList = function (id, i) {
         return this.angularFire.object("user/" + id + "/notes/" + i.key).remove();
     };
     NoteService.prototype.deleteFromTrash = function (id, n) {
         return this.angularFire.object("user/" + id + "/trash/" + n.key).remove();
     };
     NoteService.prototype.getTrashedNotes = function (id) {
-        return this.angularFire.object("user/" + id + "/trash/");
+        return this.angularFire.list("user/" + id + "/trash/").snapshotChanges().map(function (actions) {
+            return actions.map(function (action) { return (__assign({ key: action.key }, action.payload.val())); });
+        });
     };
     NoteService.prototype.onUpdateNote = function (id, n, k) {
-        debugger;
-        return this.angularFire.object("user/" + id + "/notes/" + k).update(n);
+        this.angularFire.object("user/" + id + "/notes/" + k).update(n);
+        console.log(n);
+        return;
     };
     NoteService.prototype.onDelete = function (id, i) {
         console.log(id);
         console.log(i);
         return this.angularFire.object("user/" + id + "/notes/" + i.key).remove();
+    };
+    NoteService.prototype.onUndoNote = function (id, note) {
+        console.log(id);
+        console.log(note.key);
+        var nt = this.angularFire.object("user/" + id + "/notes/" + note.key);
+        // delete note.key
+        return nt.set(note);
+    };
+    NoteService.prototype.onDeleteTrash = function (id) {
+        return this.angularFire.object("/user/" + id + "/trash").remove();
     };
     NoteService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),

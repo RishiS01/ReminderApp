@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup } from '@angular/forms';
 import { NoteService } from '../../services/note.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -8,6 +8,11 @@ import { User } from 'firebase/app';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import * as _ from 'lodash'; 
 import { SlicePipe } from '@angular/common';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+
+
+
 
 
 @Component({
@@ -17,17 +22,17 @@ import { SlicePipe } from '@angular/common';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
+  
   id:string;
   notes={} as Notes;
   authUser:User;
-  n=[];
   trashedNotes=[]
   timer:any;
   noteData=[];
   notesValue=[];
   dataValue=[];
   noteValue:any;
-  tagdata=[];
+  tagData=[];
   tag:boolean=false;
   getData:boolean=false;
   showAddInput:boolean=false;
@@ -37,241 +42,168 @@ export class HomeComponent implements OnInit {
   u:NgForm;
   key:string;
   noteUpdate:boolean=false;
+  userNotes:Notes[];
+  notesWithTags=[]
+  editNotes:any;
+  showModel:boolean;
+
   constructor(
   	public noteService:NoteService,
   	public authService:AuthService,
   	public router:Router,
-  	public flashMessagesService:FlashMessagesService
+  	public flashMessagesService:FlashMessagesService,
+   
   	) { 
 		this.authService.getAuth().subscribe(auth=>{
       this.authUser=auth;
     })
+
+
   }
 
   ngOnInit() {
-      this.getNotes()
-
+    this.getNotes()
   }
 
-getNotes(){
-      this.tag=false;
-      this.trashdata=false;
-      this.noteService.getNotes(this.authUser.uid).valueChanges().subscribe((data:any[]) =>{
-        // console.log(data)
-           this.n=[];
-         this.dataValue=[];
-         this.notesValue=[];
-         this.tagdata=[];
-         this.trashedNotes=[];
-       
-        Object.keys(data).forEach(val=>{
-            const $key=val
-            const note =data[val].Note
-            const title = data[val].Title
-            const Id=data[val].id
-          this.notesValue.push({key:$key,Note:note,Title:title,id:Id})
-         
-        })
-        
-        console.log(this.notesValue)
-      if(typeof data === typeof null){
+  getNotes(){
+    this.notesWithTags=[]
+    this.tag=false;
+    this.trashdata=false;
+    this.noteService.getNotes(this.authUser.uid).subscribe(data =>{
+      this.userNotes=data;
+      console.log(this.userNotes);
+      this.userNotes.forEach(val=>{
+        if(val.Title !== undefined){
+          val.Title.map(tag=>{
+            // this.notesWithTags = _.uniqBy(this.notesWithTags,'display')
+            this.notesWithTags.push(tag)
+            this.notesWithTags = _.uniqBy(this.notesWithTags,'display')
+          })
+          console.log(this.notesWithTags);
+        }
+      })
+    });
+  }
   
-        Object.keys(data).forEach(key=>{
-            const $key=key
-            const note =data[key].Note
-            const title = data[key].Title
-            const Id=data[key].id
-          if(typeof data[key].Title !== typeof undefined ){ 
-
-            this.noteData.push({key:$key,Note:note,Title:title,id:Id})
-            // console.log(this.noteData)
-            data[key].Title.forEach(t=>{  
-
-             this.n.push({key:$key,Title:t,Note:note})
-            });
-           // this.n = _.uniqBy(this.n,'display');
-           // console.log(this.n)
-          }
-          this.dataValue.push({key:$key,Note:note,Title:title,id:Id})
-        })
-        // console.log(this.dataValue)
-      }
-    })
-       this.notesValue=[];
-}
-
-
-
-
-
+  openAddForm(){
+    this.getData=false;
+    this.key=null;
+    this.showAddInput=true;
+    if(this.myForm){
+      this.myForm.reset()
+    }
+  }
+  
   saveNote(f:NgForm){
     clearTimeout(this.timer);
     this.timer=setTimeout(()=>{
       this.onAddNote(f)
     },500);
   }
- 
- onAddNote(f:NgForm){ debugger
+
+  onAddNote(f:NgForm){ 
+    this.showModel=false;
     let $this = this;
-    // let key = this.noteValue.key;
-    if(typeof this.noteValue !== typeof undefined){
-      
-        this.getData=true;
-        let n= this.noteValue
-        if(typeof this.noteValue.Title === typeof undefined){
-          delete this.noteValue.Title
-        }
-        if(this.noteValue.Note && this.noteValue.Note !== ""){
-          this.noteService.onUpdateNote(this.authUser.uid,n,this.noteValue.key)
-        }
-    }else{    
-    const notes={} as Notes;
-  	notes.Title=f.value.title;
-    notes.Note=f.value.note;
-    this.myForm=f
-  	if(typeof notes.Title === typeof undefined){
-  		delete notes.Title
-  	}
-    if(notes.Note && notes.Note !== ""){
-      if(!this.noteUpdate){debugger
-      this.noteService.addNote(this.authUser.uid,notes)
-      .then(
-        (ref)=>{
-          this.key = ref.key;
-         this.noteUpdate=true
-        });
+    this.notes.Title=f.value.title;
+    this.notes.Note=f.value.note;
+    this.myForm = f
+    console.log(this.key);
+    if(this.key === null){
+      if(typeof this.notes.Title === typeof undefined){
+        delete this.notes.Title
+      }
+      if(this.notes.Note && this.notes.Note !== ""){
+        this.notes.id=new Date().valueOf();
+        this.noteService.addNote(this.authUser.uid,this.notes).then(
+          (ref)=>{
+            this.key=ref.key;
+          });
+      }
+    }else{
+      this.showModel=true;
+      if(typeof this.notes.Title === typeof undefined){
+        delete this.notes.Title
+      }
+      if(typeof this.notes.Note && this.notes.Note !== ""){
+        this.noteService.onUpdateNote(this.authUser.uid,this.notes,this.key)
+      }
     }
-    else{
-    this.update(notes,this.key)
+  } 
+  
+  trashData(){
+    this.tag=false;
+    this.showAddInput=false;
+    this.trashdata=true;
+    this.trashedNotes=[]
+    this.noteService.getTrashedNotes(this.authUser.uid).subscribe(trashData=>{
+      this.trashedNotes = trashData;
+      console.log(this.trashedNotes);
+    })
   }
+  
+  getNoteData(data,i){
+    this.getData=true;
+    this.key = data.key
+    console.log(data);
+    this.editNotes=[]
+    console.log(this.userNotes);
+    // data=Object.assign([],data)
+    this.editNotes=data;
   }
 
-}
-}
-  
-  
-  onItemAdded($event){
-    console.log($event)
-  }
-  
-  onItemRemoved($event){
-    console.log($event)
-  }
-  
-  onAddNoteToTrash(note,i){
-    if(confirm('Are you sure ?')){
-      this.noteData.splice(i,1);
-  	  this.noteService.onAddToTrash(this.authUser.uid,note);
+  onAddNoteToTrash(data,i){
+    if(confirm('Are you sure')){
+      const trash =  this.noteService.onAddToTrash(this.authUser.uid,data)
+      if(typeof data.Title  === typeof undefined){
+        delete data.Title
+        // delete data.id
+      }
+      trash.set({...data});
+     this.noteService.removeNoteFromList(this.authUser.uid,data);
     }
     this.getNotes();
   }
-  
-  getTagData(tag){
+
+  getTagData(data){
     this.trashdata=false;
-    this.tagdata=[];
-    tag=Object.assign([],tag)
-    this.noteData.map(obj=>{
-      
-    obj=  Object.assign([],obj)
-      obj.Title.map(tt=>{
-        console.log(tt);
-          if(tag.Title.display === tt.display){
-            this.tag=true
-            console.log()
-            if(_.findIndex(this.tagdata,['key',obj.key]) === -1){
-              this.tagdata.push({...obj})  
-            }
-           console.log(this.tagdata);
+    this.tag=true;
+    this.tagData=[]
+    this.userNotes
+    this.userNotes.map(value=>{
+      if(value.Title !== undefined){
+        value.Title.map(val=>{
+          if(val.display === data.display){
+            this.tagData.push(value)
           }
         })
-    })
-  }
-
-
-  
-  onRemoveNote(note,i){
-    console.log(note)
-    if(confirm('Are you sure?')){
-      this.noteService.onDelete(this.authUser.uid,note)
-    }
-  }
-  
-  getNoteData(nt,i){
-      this.key = nt.key;
-      this.noteUpdate=true
-    this.dataValue.map(a=>{
-      if(nt.id === a.id){
-       this.getData=true
-        this.noteValue = nt
       }
     })
   }
-  
-
-  updateNote( n,k){
-    clearTimeout(this.timer);
-    this.timer=setTimeout(()=>{
-      this.update(n,k)
-    },500);
+  onItemAdded($event){
+    console.log($event);
+  }
+  onItemRemoved($event){
+    console.log($event);
+  }
+  onRemoveFromTrash(data,i){
+    if(confirm('Are you sure you want to permanently delete this trashed note?')){
+      this.noteService.deleteFromTrash(this.authUser.uid,data)
+    }
   }
   
-
-  update(n,k){
-    console.log(n) 
-    let key
-    if(k){
-       key= k;
-      delete n.key
-    }
-    else{
-        key= n.key;
-      delete n.key
-    }
-    
-    if(typeof n.Title === typeof undefined){
-      delete n.Title
-    }
-    if(n.Note !== ""){
-      this.noteService.onUpdateNote(this.authUser.uid,n,key)
-    }
-    
-  }
-  openAddForm(){
-    this.key= null;
-    this.getData=false;
-    this.showAddInput=true;
-    this.noteUpdate=false;
-    if(this.myForm){
-      this.myForm.reset();
-
-    }
-  }
-  onRemoveNoteFromTrash(note,i){
-    if(confirm('Note will be deleted permanently, Sure to continue?')){
-      this.trashedNotes.splice(i,1);
-      this.noteService.deleteFromTrash(this.authUser.uid,note);
-    }
-  }
-    
-  trashData(){
-    this.trashdata=false;
-    this.tag=false;
-    this.noteService.getTrashedNotes(this.authUser.uid).valueChanges().subscribe((data:any[])=>{
-      console.log(data);
+  onUndoNoteFromTrash(note,i){
+    console.log(note);
+    if(confirm('Sure to restore trashed note?')){
+      this.noteService.onUndoNote(this.authUser.uid,note)
+      this.noteService.deleteFromTrash(this.authUser.uid,note)
       this.trashedNotes=[]
-      // this.trashData()
-      if(typeof data === typeof null){
-        this.trashdata=true;
-        Object.keys(data).forEach(key=>{
-          const $key=key;
-          const note=data[key].Note
-          this.trashedNotes.push({key:$key,Note:note})
+    }
 
-        })
-        console.log(this.trashedNotes)
-      }
-    })
   }
 
-
+  onEmptyTrash(){
+    if(confirm('Are you sure you want to permanently delete your trashed notes?')){
+      this.noteService.onDeleteTrash(this.authUser.uid)
+    }
+  }
 }

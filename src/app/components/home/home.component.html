@@ -2,102 +2,96 @@
 	<div class="row">
 		<div class="col-xs-2 col-md-2 sidebar">
 			<small>
-				<a  (click) = "openAddForm()"><span class="glyphicon glyphicon-plus add"></span></a>
+				<a  (click) = "openAddForm()" *ngIf="!trashdata"><span class="glyphicon glyphicon-plus add"></span></a>
 			</small>
 			<div >
-				<div class="dropdown">
-					<span class="dropdown-toggle" type="button" data-toggle="dropdown">
-						Tags
-						<span class="caret"></span>
-					</span>
-					<ul class="dropdown-menu side">
-						<li>
-							<span class="getNotes"><span type='button'  class ="trashRouter" (click)="trashData()">Trash</span></span>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<span class="getNotes"><span (click)="getNotes()" >All Notes</span></span>
-						</li>
-						<li class="divider"></li>
-						<li *ngFor="let note of n ; let i = index "  class="title" (click)="getTagData(note)" >{{note.Title.display}}
-							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right remove" (click)="onAddNoteToTrash(note,i)"></a></span>
-						</li>
-					</ul>
+				<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target=".dropdownMenu"></i>
+      			<div class="dropdownMenu">
+      				<div class="dropdown" >
+						<span class="dropdown-toggle " type="button" data-toggle="dropdown">
+							Tags
+							<span class="caret"></span>
+						</span>
+						<ul class="dropdown-menu side">
+							<li>
+								<span class="getNotes"><span type='button'  class ="trashRouter" (click)="trashData()">Trash</span>
+									<span ><a href="" type="button" class="btn  trashButton pull-right" (click)="onEmptyTrash()">Empty</a></span>
+								</span>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<span class="getNotes"><span (click)="getNotes()" >All Notes </span> <span class=" length pull-right">{{userNotes?.length}}</span></span>
+							</li>
+							<li class="divider"></li>
+							<li *ngFor="let tag of notesWithTags ; let i = index "  class="title" (click)="getTagData(tag)" >{{tag.display}}
+							</li>
+						</ul>
+					</div>
 					
-				</div>
-				<ul class="noteList">
-					<div *ngIf="!tag && !trashdata">
-
-						<li *ngFor = "let data of notesValue; let i = index "  class="preview">
-							<p  name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" id="noteData">
-								{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}
-							</p>
-							<a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onAddNoteToTrash(data,i)"></a>
-							<li class="text">{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}}
-						</li>
-					</div>
-					<div *ngIf="tag ">
-						<li *ngFor="let data of tagdata ; let i = index "  class="preview" >
-							<p name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" >
+					<ul class="noteList">
+						<div *ngIf="!tag && !trashdata">
+							<li *ngFor = "let data of userNotes; let i = index "  class="preview">
+								<p  name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" id="noteData">
 									{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}
-							<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onRemoveNote(data,i)"></a></span>
-							</p>
-							<li class="text" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}}
-						</li>
-					</div>
-					<div *ngIf ="trashdata">
-						
-						<li *ngFor="let tnote of trashedNotes; let i = index "  class="preview">
-							<p name="Note" [(ngModel)]="tnote.Note" ngDefaultControl class="p">{{tnote.Note | slice:0:25}}{{tnote.Note?.length < 25 ? '' : '...'}}
-								<span><a class="glyphicon glyphicon-trash pull-right onTrash" (click)="onRemoveNoteFromTrash(tnote,i)"></a></span>
-							</p>
-						</li>
-						
-					</div>
-				</ul>
-				
+								</p>
+								<a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onAddNoteToTrash(data,i)"></a>
+							<!-- <li *ngIf="!showModel"  class="text" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}} -->
+							</li>
+						</div>
+						<div *ngIf="tag ">
+							<li *ngFor="let data of tagData ; let i = index "  class="preview" >
+								<p name="Note" [(ngModel)]="data.Note" ngDefaultControl (click)="getNoteData(data,i)" class="p" >
+									{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}
+								</p>
+								<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onAddNoteToTrash(data,i)" ></a></span>
+							<!-- <li class="text" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}} -->
+							</li>
+						</div>
+						<div *ngIf ="trashdata">
+							<li *ngFor="let trash of trashedNotes; let i = index " class="preview">
+								<p name="trash" [(ngModel)]="trash.Notes" (click)="getNoteData(data,i)" ngDefaultControl class="p" >
+									{{trash.Note | slice:0:25}}{{trash.Note?.length < 25 ? '' : '...'}}
+								</p>
+								<span type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onRemoveFromTrash(trash,i)"></span>
+								<span><a type='button'  class = "fa fa-undo pull-right undo" (click)="onUndoNoteFromTrash(trash,i)"></a></span>
+							</li>
+						</div>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<div class="container-fluid ">
-			<div class="col-xs-8 col-md-8 ">
-			
-			
-			
-				<form #f='ngForm' (keyup)='saveNote(f)' *ngIf="showAddInput || getData">
+			<div class="col-xs-8 col-md-8 notePad">
+				<form #f='ngForm' (keyup)='saveNote(f)'  *ngIf="showAddInput || getData" >
 					<div class="tag-input col-xs-12">
-						<!-- <div class="col-xs-12"> -->
-						<tag-input *ngIf="!getData" name="title" [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='title'
-								(onRemove)="onItemRemoved($event)"
-								(onAdd)="onItemAdded($event)"
-								[editable]='true' (onTagEdited)="onTagEdited($event)">
-						</tag-input>
-						<tag-input *ngIf="getData" name="title" [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='noteValue.Title'
-								(onRemove)="onItemRemoved($event)"
-								(onAdd)="onItemAdded($event)"
-								[editable]='true' (onTagEdited)="onTagEdited($event)">
-						</tag-input>
-					<!-- </div> -->
+						<div class="col-xs-12">
+							<tag-input *ngIf="!getData" name="title"  [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='title'
+									(onRemove)="onItemRemoved($event)"
+									(onAdd)="onItemAdded($event)"
+									[editable]='true' (onTagEdited)="onTagEdited($event)">
+								<tag-input-dropdown [autocompleteItems]="notesWithTags"
+									[autocompleteItems]="true">
+								</tag-input-dropdown>
+							</tag-input>
+							<tag-input *ngIf="getData" name="title"  [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='editNotes.Title'
+									(onRemove)="onItemRemoved($event)"
+									(onAdd)="onItemAdded($event)"
+									[editable]='true' (onTagEdited)="onTagEdited($event)">
+									{{editNotes.title}}
+								<tag-input-dropdown [autocompleteItems]="notesWithTags"
+									[autocompleteItems]="true">
+								</tag-input-dropdown>
+							</tag-input>
+
+						</div>
 					</div>
 					<div class="note col-xs-12" >
 						<div class="col-xs-12" >
 							<textarea *ngIf="!getData" rows="100%" cols="100%" name="note" placeholder="note.." [(ngModel)]="note" ></textarea >
-							<textarea *ngIf="getData" rows="100%" cols="100%" name="Note"  [(ngModel)]="noteValue.Note" >{{noteValue.Note}}</textarea>
+							<textarea *ngIf="getData" rows="100%" cols="100%" name="note"  [(ngModel)]="editNotes.Note" >{{editNotes.note}}</textarea>
 						</div>
 					</div>
 				</form>
-				<!-- <form #u='ngForm' (keyup)='updateNote(noteValue)'  *ngIf='getData'>
-					<div class="tag-input">
-						<tag-input *ngIf="getData" name="title" [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='noteValue.Title'
-																(onRemove)="onItemRemoved($event)"
-																(onAdd)="onItemAdded($event)"
-																[editable]='true' (onTagEdited)="onTagEdited($event)">{{noteValue.Title}}
-						</tag-input>
-					</div>
-					<div class="note" >
-						<textarea *ngIf="getData" rows="100%" cols="100%" name="Note"  [(ngModel)]="noteValue.Note" >{{noteValue.Note}}</textarea>
-					</div>
-				</form> -->
-				
 			</div>
 		</div>
 	</div>

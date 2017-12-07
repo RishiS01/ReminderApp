@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class NoteService {
-	notes:AngularFireObject<any>;
+	notes:AngularFireList<any>;
 	trash:AngularFireList<any>;
 	user:AngularFireList<any>;
 
@@ -15,43 +15,53 @@ export class NoteService {
   	) { 
   	this.user = this.angularFire.list('/user'),
   	this.trash=this.angularFire.list('/trash')
-    // this.notes=this.angularFire.object('/notes')
   }
   addNote(id,n){
   	const note =this.angularFire.list(`/user/${id}/notes/`)
-  	
-  	 return note.push({...n,id: new Date().valueOf()})
-
+  	return note.push({...n})
   }
   getNotes(id){
-  	return this.angularFire.object(`/user/${id}/notes/`)
+  	return this.angularFire.list(`/user/${id}/notes/`)
+    .snapshotChanges().map(actions => {
+    return actions.map(action => ({ key: action.key, ...action.payload.val() }));
+  })
 
   }
   onAddToTrash(id,i){
-
-  	const trash= this.angularFire.object(`/user/${id}/trash/${i.key}`)
-    if(typeof i.Title === typeof undefined){
-      delete i.Title
-    }
-    
-    trash.set({...i})
-    console.log(i)
+    return this.angularFire.object(`/user/${id}/trash/${i.key}`)
+  }
+  removeNoteFromList(id,i){
     return this.angularFire.object(`user/${id}/notes/${i.key}`).remove();
   }
   deleteFromTrash(id,n){
     return this.angularFire.object(`user/${id}/trash/${n.key}`).remove();
   }
   getTrashedNotes(id){
-    return this.angularFire.object(`user/${id}/trash/`);
+    return this.angularFire.list(`user/${id}/trash/`).snapshotChanges().map(actions => {
+    return actions.map(action => ({ key: action.key, ...action.payload.val() }));
+  });
   }
-  onUpdateNote(id,n,k){debugger
-    
-   return this.angularFire.object(`user/${id}/notes/${k}`).update(n);
+  onUpdateNote(id,n,k){
+    this.angularFire.object(`user/${id}/notes/${k}`).update(n);
+    console.log(n);
+    return
   }
   onDelete(id,i){
     console.log(id);
     console.log(i);
     return this.angularFire.object(`user/${id}/notes/${i.key}`).remove();
+  }
+  onUndoNote(id,note){
+    console.log(id);
+
+    console.log(note.key);
+    const nt= this.angularFire.object(`user/${id}/notes/${note.key}`)
+    // delete note.key
+    return nt.set(note)  
+  }
+
+  onDeleteTrash(id){
+    return this.angularFire.object(`/user/${id}/trash`).remove();
   }
 }
 	

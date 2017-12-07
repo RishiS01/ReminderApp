@@ -8,6 +8,7 @@
 }
 .getNotes{
     margin-left: 12px;    
+    cursor:pointer;
 }
 .trashRouter{
     
@@ -22,14 +23,15 @@
 .title{
     margin-left: 12px;
     margin-top: 5px;
+    cursor:pointer;
 }
 .dropdown{
-    /*position: absolute;*/
-    top: 6%;
+    top: 6%;  
+}
+.dropdown-toggle{
+    cursor:pointer;
 }
 .sidebar{
-	/*position: absolute;*/
-    z-index: 1;
     left: 0;
     top: 0;
     bottom: 0;
@@ -48,19 +50,18 @@ textarea{
     height: 100%;
     box-sizing: border-box;
     margin-left: -31px;
-
+    resize: none;
+    border-left: 1px solid #f0f0f0;
+    /*border-top: 1px solid #f0f0f0;*/
 }
 .tag-input{
-    /*position: absolute;
-    top: -21px;
-    left: 346px;*/
     padding-left: 0px;
     margin-left: -15px;
-    border: 0px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+
 }
 .remove{
     color:red;
-    /*margin-right: 10px;*/
     padding-top: 2px;   
     padding-right: 7px;
     position: relative;
@@ -69,6 +70,9 @@ textarea{
     display: none;
     color: red;
 }
+.dropdownMenu{
+    display: block;
+  }
 li{
     list-style: none;
    
@@ -89,7 +93,7 @@ h3{
     top: -10px;
     height: 15px;
     padding-left: 65px;
-    border-bottom: 0px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
 }
 .note{
     /*position: absolute;
@@ -148,19 +152,21 @@ ul.tagUl li{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor:pointer;
 }
 .preview:hover .trash {
     display: block;
     color: red;
 }
 .trash{
-    padding-top: 16px;   
-    padding-right: 17px;
+    /*padding-top: 16px;   
+    padding-right: 12px;*/
     position: absolute;
     right: 0;
     top: 0;
     display: none;
     color: red;
+    padding: 16px 0px 2px 0px;
 }
 .title:hover .remove{
     display: block;
@@ -172,7 +178,7 @@ ul.tagUl li{
 }
 .onTrash{
     padding-top: 16px;   
-    padding-right: 17px;
+    padding-right: 12px;
     position: absolute;
     right: 0;
     top: 0;
@@ -187,29 +193,106 @@ ul.tagUl li{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.containt{
-    
+.trashButton{
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+    padding: 2px 6px;
+    margin-right: 7px;
 }
-@media only screen and (max-width: 768px){
+.length{
+    margin-right: 28px;
+}
+.undo{
+    margin-top: -29px;
+    padding-right: 27px;
+    color: #006699;
+
+}
+.toggle-btn{
+    display: none;
+}
+@media only screen and (max-width:768px)  {
     .sidebar{
         height: auto;
     }
     .noteList{
         height: auto;
-        padding: 0px;
+        padding: 0px;   
     }
     textarea{
-    /*padding: 10px 100px 10px 20px;*/
-    left: 0px;
-    position: absolute;
-    width:126%;
-    border: 0px solid #f0f0f0;
-    max-height: 100%;
-    min-height: 799px;
-    height: 100%;
-    box-sizing: border-box;
-    margin-left: -31px;
+        padding: 10px 20px 10px 20px;
+        left: 0px;
+        position: absolute;
+        width:126%;
+        border-left: 0px solid #f0f0f0;
+        max-height: 100%;
+        min-height: 799px;
+        height: 100%;
+        box-sizing: border-box;
+        margin-left: -31px;
+        /*border-top: 1px solid #f0f0f0;*/
 
+    }
+    .add{
+        position: fixed;
+        left:10%;
+        top:6%;
+    }
+    .toggle-btn {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        left: 10px;
+        top: -38px;
+        z-index: 10 !important;
+        padding: 3px;
+        background-color: #ffffff;
+        color: #000;
+        width: 40px;
+        text-align: center;
+    }
+  .dropdownMenu{
+    display: none;
+  }
+  .notePad{
+    width: 351px;
+    max-height: 533px;
+    }
 }
+@media only screen and (max-width: 1024px){
+    .sidebar{
+        height: auto;
+    }
+    .noteList{
+        height: auto;
+        padding: 0px;   
+    }
+    textarea{
+        padding: 10px 20px 10px 20px;
+        left: 0px;
+        position: absolute;
+        width:126%;
+        border-left: 0px solid #f0f0f0;
+        max-height: 100%;
+        min-height: 799px;
+        height: 100%;
+        box-sizing: border-box;
+        margin-left: -31px;
+        /*border-top: 1px solid #f0f0f0;*/
 
+    }
+}
+/*.ng2-tag-input  {
+    border-bottom: 0px solid white;
+}
+*/
+
+
+@media only screen and (max-width: 576px){
+  .add{
+        position: fixed;
+        left:15%;
+        top:8%;
+    }
 }
