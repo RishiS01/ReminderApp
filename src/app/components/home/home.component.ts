@@ -5,7 +5,6 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Notes } from '../../Models/Notes';
 import { User } from 'firebase/app';
-import { FlashMessagesService } from 'angular2-flash-messages';
 import * as _ from 'lodash'; 
 import { SlicePipe } from '@angular/common';
 import 'rxjs/add/operator/debounceTime';
@@ -27,9 +26,6 @@ export class HomeComponent implements OnInit {
   authUser:User;
   trashedNotes=[]
   timer:any;
-  noteData=[];
-  notesValue=[];
-  dataValue=[];
   noteValue:any;
   tagData=[];
   tag:boolean=false;
@@ -38,19 +34,16 @@ export class HomeComponent implements OnInit {
   trashdata:boolean=false;
   sideNote:any;
   myForm:NgForm;
-  u:NgForm;
   key:string;
   noteUpdate:boolean=false;
   userNotes:Notes[];
   notesWithTags=[]
   editNotes:any;
-  showModel:boolean;
 
   constructor(
   	public noteService:NoteService,
   	public authService:AuthService,
   	public router:Router,
-  	public flashMessagesService:FlashMessagesService,
    
   	) { 
 		this.authService.getAuth().subscribe(auth=>{
@@ -68,15 +61,15 @@ export class HomeComponent implements OnInit {
     this.trashdata=false;
     this.noteService.getNotes(this.authUser.uid).subscribe(data =>{
       this.userNotes=data;
-      console.log(this.userNotes);
       this.userNotes.forEach(val=>{
         if(val.Title !== undefined){
           val.Title.map(tag=>{
             // this.notesWithTags = _.uniqBy(this.notesWithTags,'display')
-            this.notesWithTags.push(tag)
+            if(_.findIndex(this.notesWithTags,['display',val.Title]) === -1){
+              this.notesWithTags.push(tag)
+            }
             this.notesWithTags = _.uniqBy(this.notesWithTags,'display')
           })
-          console.log(this.notesWithTags);
         }
       })
     });
@@ -102,8 +95,7 @@ export class HomeComponent implements OnInit {
     },500);
   }
 
-  onAddNote(f:NgForm){ debugger
-    this.showModel=false;
+  onAddNote(f:NgForm){ 
     let $this = this;
     this.notes.Title=f.value.title;
     this.notes.Note=f.value.note;
@@ -121,7 +113,6 @@ export class HomeComponent implements OnInit {
           });
       }
     }else{
-      this.showModel=true;
       if(typeof this.notes.Title === typeof undefined){
         delete this.notes.Title
       }
@@ -132,7 +123,7 @@ export class HomeComponent implements OnInit {
     this.getNotes();
   } 
   
-  trashData(){debugger
+  trashData(){
     this.tag=false;
     this.getData=false;
     this.showAddInput=false;
@@ -140,17 +131,13 @@ export class HomeComponent implements OnInit {
     this.trashedNotes=[]
     this.noteService.getTrashedNotes(this.authUser.uid).subscribe(trashData=>{
       this.trashedNotes = trashData;
-      console.log(this.trashedNotes);
     })
   }
   
   getNoteData(data,i){
     this.getData=true;
     this.key = data.key
-    console.log(data);
     this.editNotes=[]
-    console.log(this.userNotes);
-    // data=Object.assign([],data)
     this.editNotes=data;
   }
 
@@ -182,13 +169,16 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-  onItemAdded($event){
+  onItemAdded($event,f:NgForm){
     console.log($event);
+    this.onAddNote(f)
   }
  
   onItemRemoved($event,f:NgForm){
     console.log($event);
-    this.onAddNote(f)
+    if(confirm('Do you really want to remove this tag?')){
+      this.onAddNote(f)
+    }
   }
   onRemoveFromTrash(data,i){
     if(confirm('Are you sure you want to permanently delete this trashed note?')){
@@ -197,7 +187,6 @@ export class HomeComponent implements OnInit {
   }
   
   onUndoNoteFromTrash(note,i){
-    console.log(note);
     if(confirm('Sure to restore trashed note?')){
       this.noteService.onUndoNote(this.authUser.uid,note)
       this.noteService.deleteFromTrash(this.authUser.uid,note)

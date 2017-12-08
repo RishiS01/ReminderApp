@@ -35,7 +35,6 @@
 									{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}
 								</p>
 								<a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onAddNoteToTrash(data,i)"></a>
-							<!-- <li *ngIf="!showModel"  class="text" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}} -->
 							</li>
 						</div>
 						<div *ngIf="tag ">
@@ -44,12 +43,11 @@
 									{{data.Note | slice:0:25}}{{data.Note?.length < 25 ? '' : '...'}}
 								</p>
 								<span ><a type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onAddNoteToTrash(data,i)" ></a></span>
-							<!-- <li class="text" >{{note | slice:0:25}}{{note?.length < 25 ? '' : '...'}} -->
 							</li>
 						</div>
 						<div *ngIf ="trashdata">
 							<li *ngFor="let trash of trashedNotes; let i = index " class="preview">
-								<p name="trash" [(ngModel)]="trash.Notes" (click)="getNoteData(data,i)" ngDefaultControl class="p" >
+								<p name="trash" [(ngModel)]="trash.Notes" ngDefaultControl class="p" >
 									{{trash.Note | slice:0:25}}{{trash.Note?.length < 25 ? '' : '...'}}
 								</p>
 								<span type='button'  class ="glyphicon glyphicon-trash pull-right trash" (click)="onRemoveFromTrash(trash,i)"></span>
@@ -67,7 +65,7 @@
 						<div class="col-xs-12" >
 							<tag-input *ngIf="!getData" name="title"  [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='title'
 									(onRemove)="onItemRemoved($event,f)"
-									(onAdd)="onItemAdded($event)"
+									(onAdd)="onItemAdded($event,f)"
 									[editable]='true' (onTagEdited)="onTagEdited($event,i)">
 								<tag-input-dropdown [autocompleteItems]="notesWithTags"
 									[autocompleteItems]="true">
@@ -75,7 +73,7 @@
 							</tag-input>
 							<tag-input *ngIf="getData" name="title"  [separatorKeyCodes]="[32]" [maxItems]='3' [(ngModel)]='editNotes.Title'
 									(onRemove)="onItemRemoved($event,f)"
-									(onAdd)="onItemAdded($event)"
+									(onAdd)="onItemAdded($event,f)"
 									[editable]='true' (onTagEdited)="onTagEdited($event)">
 									{{editNotes.title}}
 								<tag-input-dropdown [autocompleteItems]="notesWithTags"

@@ -4,30 +4,32 @@ import { RouterModule,Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
-import { FlashMessagesModule } from 'angular2-flash-messages';
+           // components import
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { EditComponent } from './components/edit/edit.component';
-// import { TrashComponent } from './components/trash/trash.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+
+           // services import
 
 import { AuthService } from './services/auth.service';
 import { NoteService } from './services/note.service';
 import { AuthGuard } from './guards/auth.guard';
 
+           // firebase services
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-// import { SideBarComponent } from './components/side-bar/side-bar.component';
+
+          // dependencies for Tags 
 
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+          // loadash
 import * as _ from 'lodash'; 
 
 export const firebaseCongfig ={
@@ -41,10 +43,6 @@ export const firebaseCongfig ={
 const appRoutes:Routes=[
   { path:'',component:HomeComponent,canActivate:[AuthGuard]},
   { path:'login',component:LoginComponent},
-  { path:'edit-note/:id',component:EditComponent,canActivate:[AuthGuard]},
-  // { path:'trash',component:TrashComponent,canActivate:[AuthGuard]},
-  
-
 ]
 
 @NgModule({
@@ -52,10 +50,7 @@ const appRoutes:Routes=[
     AppComponent,
     HomeComponent,
     LoginComponent,
-    EditComponent,
-    // TrashComponent,
     NavbarComponent,
-    // SideBarComponent
   ],
   imports: [
     BrowserModule,
@@ -63,11 +58,8 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    FlashMessagesModule,
     TagInputModule,
     BrowserAnimationsModule
-    
-
   ],
   providers: [
     AuthService,
@@ -75,8 +67,7 @@ const appRoutes:Routes=[
     AngularFireModule,
     AngularFireAuth,
     AngularFireDatabase,
-    AuthGuard,
-    
+    AuthGuard,  
   ],
   bootstrap: [AppComponent]
 })

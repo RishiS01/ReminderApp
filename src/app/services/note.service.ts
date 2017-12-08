@@ -24,8 +24,7 @@ export class NoteService {
   	return this.angularFire.list(`/user/${id}/notes/`)
     .snapshotChanges().map(actions => {
     return actions.map(action => ({ key: action.key, ...action.payload.val() }));
-  })
-
+    })
   }
   onAddToTrash(id,i){
     return this.angularFire.object(`/user/${id}/trash/${i.key}`)
@@ -43,18 +42,12 @@ export class NoteService {
   }
   onUpdateNote(id,n,k){
     this.angularFire.object(`user/${id}/notes/${k}`).update(n);
-    console.log(n);
     return
   }
   onDelete(id,i){
-    console.log(id);
-    console.log(i);
     return this.angularFire.object(`user/${id}/notes/${i.key}`).remove();
   }
   onUndoNote(id,note){
-    console.log(id);
-
-    console.log(note.key);
     const nt= this.angularFire.object(`user/${id}/notes/${note.key}`)
     // delete note.key
     return nt.set(note)  
